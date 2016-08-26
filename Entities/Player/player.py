@@ -1,4 +1,5 @@
 from ..Inventory.inventory import Inventory
+from ..Activities.woodworking import Woodworking
 
 class Player(object):
 	def __init__(self, playerName):
@@ -7,6 +8,18 @@ class Player(object):
 		self.playerStamina = 10
 		self.playerStrength = 10
 		self.inventory = Inventory()
+		self.woodWorkingSkill = Woodworking()
+
+	def cutDownTree(self):
+		if(self.inventory.isSlotsFull()):
+			print("Your inventory is full!\n")
+			print("You didn't pick up the wood.\n")
+		else:
+			if(self.woodWorkingSkill.isWoodGained()):
+				print("You got 1 piece of wood!\n")
+				self.inventory.slots['wood'] += 1
+			else:
+				print("You failed to cut the tree.\n")
 
 #TODO: Create a file to hold how much health should increase
 # based on what the player eats.

@@ -6,7 +6,7 @@ class Game(object):
 		pass
 
 	def start(self, name):
-		player1 = Player(name)
+		player = Player(name)
 		
 		while True:
 			playerInput = -1
@@ -19,6 +19,6 @@ class Game(object):
 				print("You have quited.\n")
 				break
 			elif(playerInput == 1):
-				pass
+				player.cutDownTree()
 			else:
 				print("This is not a valid action\n")
