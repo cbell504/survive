@@ -1,14 +1,20 @@
 from ..Inventory.inventory import Inventory
 from ..Activities.woodworking import Woodworking
+from .Attributes.attribute import Attribute
 
 class Player(object):
 	def __init__(self, playerName):
 		self.playerLevel = 1
 		self.playerName = playerName
 		self.playerStamina = 10
-		self.playerStrength = 10
+		self.playerStrength = Attribute()
 		self.inventory = Inventory()
 		self.woodWorkingSkill = Woodworking()
+
+	def checkStats(self):
+		print("Player Stats")
+		print("Current level: ", self.playerLevel)
+		print("Strength: ", self.playerStrength.attributeLevel, "\n")
 
 	def cutDownTree(self):
 		if(self.inventory.isSlotsFull()):
@@ -18,6 +24,7 @@ class Player(object):
 			if(self.woodWorkingSkill.isWoodGained()):
 				print("You got 1 piece of wood!\n")
 				self.inventory.slots['wood'] += 1
+				self.playerStrength.gainExp()
 			else:
 				print("You failed to cut the tree.\n")
 
