@@ -1,14 +1,12 @@
-from ..Player.player import Player
-from ..Activities.Crafting.craftingcontroller import CraftingController
-
+from .crafting import Crafting
+from .woodworking import Woodworking
 import platform
 import os
-import time
 
-class Game(object):
-
+class CraftingController(object):
+	
 	def __init__(self):
-		self.system = ""
+		self.crafter = Crafting()
 
 	def clearScreen(self):
 		self.getPlatform()
@@ -20,18 +18,12 @@ class Game(object):
 	def getPlatform(self):
 		self.system = platform.system()
 
-	def start(self, name):
-		player = Player(name)
-		crafter = CraftingController()
-		
+	def start(self):
 		while True:
 			playerInput = -1
 			try:
 				print("Possible Actions:\n")
-				print("(1)  Check Stats")
-				print("(2)  Check Inventory")
-				print("(3)  Gather Wood")
-				print("(4)  Craft A New Item")
+				print("(1)  Wood Working")
 				print("(10) Clear Screen")
 				print("(0)  To Quit\n")
 
@@ -40,23 +32,13 @@ class Game(object):
 				self.clearScreen()
 
 				if(playerInput == 0 ):
-					print("You have quited.\n")
+					print("Moving back to game.\n")
 					break
 				elif(playerInput == 10):
 					self.clearScreen()
 
 				elif(playerInput == 1):
-					player.checkStats()
-
-				elif(playerInput == 2):
-					player.checkInventory();
-
-				elif(playerInput == 3):
-					player.cutDownTree()
-
-				elif(playerInput == 4):
-					print("Entering Crafting Screen.\n")
-					crafter.start()
+					pass
 
 				else:
 					print("This is not a valid action\n")
@@ -66,6 +48,3 @@ class Game(object):
 			except:
 				print("Error occurred.\n")
 				raise
-
-
-			

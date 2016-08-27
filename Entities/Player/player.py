@@ -1,5 +1,5 @@
 from ..Inventory.inventory import Inventory
-from ..Activities.woodworking import Woodworking
+from ..Activities.Crafting.woodworking import Woodworking
 from .Attributes.attribute import Attribute
 
 class Player(object):
@@ -11,6 +11,9 @@ class Player(object):
 		self.inventory = Inventory()
 		self.woodWorkingSkill = Woodworking()
 
+	def checkInventory(self):
+		self.inventory.display()
+
 	def checkStats(self):
 		print("Player Stats")
 		print("Current level: ", self.playerLevel)
@@ -21,9 +24,10 @@ class Player(object):
 			print("Your inventory is full!\n")
 			print("You didn't pick up the wood.\n")
 		else:
+			#TODO Make wood working class give out wood
 			if(self.woodWorkingSkill.isWoodGained()):
 				print("You got 1 piece of wood!\n")
-				self.inventory.slots['wood'] += 1
+				self.inventory.slots['Wood'] += 1
 				self.playerStrength.gainExp()
 			else:
 				print("You failed to cut the tree.\n")
@@ -41,10 +45,6 @@ class Player(object):
 			return true
 		else:
 			return false
-
-#TODO: Fix this function
-	def increaseStat(self):
-		self.playerStrength = 1
 
 	def killPlayer(self):
 		self.playerHealth = 0

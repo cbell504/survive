@@ -1,8 +1,13 @@
 class Inventory(object):
 
 	def __init__(self):
-		self.slots = {'wood':0}
+		self.slots = {'Wood':0}
 		self.slotsMaxSize = 10
+
+	def display(self):
+		for k, v in self.slots.items():
+			print(k,":", v)
+		print("\n")
 
 
 	def isSlotsFull(self):
