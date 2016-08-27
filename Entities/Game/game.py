@@ -22,7 +22,7 @@ class Game(object):
 
 	def start(self, name):
 		player = Player(name)
-		crafter = CraftingController()
+		craftingController = CraftingController()
 		
 		while True:
 			playerInput = -1
@@ -56,7 +56,7 @@ class Game(object):
 
 				elif(playerInput == 4):
 					print("Entering Crafting Screen.\n")
-					crafter.start()
+					craftingController.start(player.inventory)
 
 				else:
 					print("This is not a valid action\n")

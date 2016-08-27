@@ -5,8 +5,8 @@ class Inventory(object):
 		self.slotsMaxSize = 10
 
 	def display(self):
-		for k, v in self.slots.items():
-			print(k,":", v)
+		for key, value in self.slots.items():
+			print(key,":", value)
 		print("\n")
 
 

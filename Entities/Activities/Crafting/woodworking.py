@@ -1,10 +1,18 @@
 from random import randint
 
-class Woodworking(object):
+# Items Numbers:
+# 1 - Boat
+# 2 - Shelter
+# 0 - Nothing
+
+
+#TODO Make this send up a dic to upper controllers
+class WoodWorking(object):
 	
 	def __init__(self):
 		self.skillLevel = 1
 		self.percentageToCut = 2
+		self.itemBuilt = 0
 
 
 	def isWoodGained(self):
@@ -14,4 +22,22 @@ class Woodworking(object):
 		else:
 			return False
 
-	
+	def buildBoat(self, totalWood):
+		if(totalWood >= 10):
+			print("You have built a boat.")
+			self.itemBuilt = 1
+			return self.itemBuilt
+		else:
+			print("You don't have enough wood")
+			self.itemBuilt = 0
+			return self.itemBuilt
+
+	def buildShelter(self, totalWood):
+		if(totalWood >= 5):
+			print("You have built a Shelter.")
+			self.itemBuilt = 2
+			return self.itemBuilt
+		else:
+			print("You don't have enough wood")
+			self.itemBuilt = 0
+			return self.itemBuilt

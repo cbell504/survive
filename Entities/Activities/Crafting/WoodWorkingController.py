@@ -1,21 +1,22 @@
-from .crafting import Crafting
-from Entities.Activities.Crafting.WoodWorkingController import WoodWorkingController
 from Entities.Controller import Controller
+from Entities.Activities.Crafting.WoodWorking import WoodWorking
 
-class CraftingController(Controller):
-	
+class WoodWorkingController(Controller):
 	def __init__(self):
-		self.crafter = Crafting()
-		self.WoodControl = WoodWorkingController()
+		woodworker = WoodWorking()
+		itemBuilt = 0
 
 	def start(self, inventory):
+		totalWood = inventory['Wood']
+
 		while True:
 			playerInput = -1
 			try:
 				print("Possible Actions:\n")
-				print("(1)  Wood Working")
+				print("(1)  Build A Shelter")
+				print("(2)  Build A Boat")
 				print("(10) Clear Screen")
-				print("(0)  Back To Game\n")
+				print("(0)  Back To Crafting\n")
 
 				playerInput = int(input("Enter an action.\n"))
 				print("\n")
@@ -28,7 +29,10 @@ class CraftingController(Controller):
 					self.clearScreen()
 
 				elif(playerInput == 1):
-					self.WoodControl.start(inventory)
+					self.itemBuilt = buildShelter(totalWood)
+
+				elif(playerInput == 2):
+					self.itemBuilt = buildBoat(totalWood)
 
 				else:
 					print("This is not a valid action\n")
@@ -38,3 +42,5 @@ class CraftingController(Controller):
 			except:
 				print("Error occurred.\n")
 				raise
+
+		return self.itemBuilt
