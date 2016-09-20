@@ -27,8 +27,10 @@ class CraftingController(Controller):
 				elif(playerInput == 10):
 					self.clearScreen()
 
+					inventory.display()
+
 				elif(playerInput == 1):
-					self.WoodControl.start(inventory)
+					inventory = self.WoodControl.start(inventory)
 
 				else:
 					print("This is not a valid action\n")
@@ -38,3 +40,5 @@ class CraftingController(Controller):
 			except:
 				print("Error occurred.\n")
 				raise
+				
+		return inventory
