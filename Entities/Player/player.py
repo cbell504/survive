@@ -9,7 +9,7 @@ class Player(object):
 		self.playerStamina = 10
 		self.playerStrength = Attribute()
 		self.inventory = Inventory()
-		self.woodWorkingSkill = WoodWorking()
+		self.woodWorkingSkill = WoodWorking(self.inventory)
 
 	def checkInventory(self):
 		self.inventory.display()

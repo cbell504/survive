@@ -30,8 +30,9 @@ class Game(object):
 				print("Possible Actions:\n")
 				print("(1)  Check Stats")
 				print("(2)  Check Inventory")
-				print("(3)  Gather Wood")
-				print("(4)  Craft A New Item")
+				print("(3)  Use Item")
+				print("(4)  Gather Wood")
+				print("(5)  Craft A New Item")
 				print("(10) Clear Screen")
 				print("(0)  To Quit\n")
 
@@ -52,9 +53,12 @@ class Game(object):
 					player.checkInventory();
 
 				elif(playerInput == 3):
-					player.cutDownTree()
+					pass
 
 				elif(playerInput == 4):
+					player.cutDownTree()
+
+				elif(playerInput == 5):
 					print("Entering Crafting Screen.\n")
 					player.inventory = craftingController.start(player.inventory)
 
