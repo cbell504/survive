@@ -8,7 +8,7 @@ class CraftingController(Controller):
 		self.crafter = Crafting()
 		self.WoodControl = WoodWorkingController()
 
-	def start(self, inventory):
+	def start(self, player):
 		while True:
 			playerInput = -1
 			try:
@@ -27,10 +27,10 @@ class CraftingController(Controller):
 				elif(playerInput == 10):
 					self.clearScreen()
 
-					inventory.display()
+					player.inventory.display()
 
 				elif(playerInput == 1):
-					inventory = self.WoodControl.start(inventory)
+					player = self.WoodControl.start(player)
 
 				else:
 					print("This is not a valid action\n")
@@ -41,4 +41,4 @@ class CraftingController(Controller):
 				print("Error occurred.\n")
 				raise
 				
-		return inventory
+		return player

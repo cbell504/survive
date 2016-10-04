@@ -60,7 +60,7 @@ class Game(object):
 
 				elif(playerInput == 5):
 					print("Entering Crafting Screen.\n")
-					player.inventory = craftingController.start(player.inventory)
+					player = craftingController.start(player)
 
 				else:
 					print("This is not a valid action\n")

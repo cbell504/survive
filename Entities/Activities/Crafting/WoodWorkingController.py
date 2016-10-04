@@ -3,12 +3,10 @@ from Entities.Activities.Crafting.WoodWorking import WoodWorking
 
 class WoodWorkingController(Controller):
 	def __init__(self):
-		#self.woodworker = WoodWorking()
 		self.itemBuilt = 0
 
-	def start(self, inventory):
-		#error here
-		totalWood = inventory.slots['Wood']
+	def start(self, player):
+		totalWood = player.inventory.slots['Wood']
 
 		while True:
 			playerInput = -1
@@ -31,14 +29,14 @@ class WoodWorkingController(Controller):
 					self.clearScreen()
 
 				elif(playerInput == 1):
-					woodworker = WoodWorking(inventory)
+					woodworker = WoodWorking(player)
 
-					inventory = woodworker.buildShelter(totalWood)
+					player = woodworker.buildShelter(totalWood)
 
 				elif(playerInput == 2):
-					woodworker = WoodWorking(inventory)
+					woodworker = WoodWorking(player)
 
-					inventory = woodworker.buildBoat(totalWood)
+					player = woodworker.buildBoat(totalWood)
 
 
 				else:
@@ -50,4 +48,4 @@ class WoodWorkingController(Controller):
 				print("Error occurred.\n")
 				raise
 
-		return inventory
+		return player
