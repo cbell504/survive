@@ -2,7 +2,7 @@ from Entities.Player.player import Player
 from Entities.Game.game import Game
 
 def main():
-	print("Welcome to Surivthon.")
+	print("Welcome to Surivthon.\n ")
 
 	playerInput = input("Please enter your name.\n")
 

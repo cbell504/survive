@@ -1,5 +1,5 @@
 from ..Inventory.inventory import Inventory
-from ..Activities.Crafting.woodworking import Woodworking
+from Entities.Activities.Crafting.WoodWorking import WoodWorking
 from .Attributes.attribute import Attribute
 
 class Player(object):
@@ -9,7 +9,7 @@ class Player(object):
 		self.playerStamina = 10
 		self.playerStrength = Attribute()
 		self.inventory = Inventory()
-		self.woodWorkingSkill = Woodworking()
+		self.woodWorkingSkill = WoodWorking(self.inventory)
 
 	def checkInventory(self):
 		self.inventory.display()

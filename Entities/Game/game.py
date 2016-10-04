@@ -1,5 +1,6 @@
 from ..Player.player import Player
 from ..Activities.Crafting.craftingcontroller import CraftingController
+from ..Inventory.InventoryController import InventoryController
 
 import platform
 import os
@@ -22,7 +23,8 @@ class Game(object):
 
 	def start(self, name):
 		player = Player(name)
-		crafter = CraftingController()
+		craftingController = CraftingController()
+		inventoryController = InventoryController()
 		
 		while True:
 			playerInput = -1
@@ -30,8 +32,9 @@ class Game(object):
 				print("Possible Actions:\n")
 				print("(1)  Check Stats")
 				print("(2)  Check Inventory")
-				print("(3)  Gather Wood")
-				print("(4)  Craft A New Item")
+				print("(3)  Use Item")
+				print("(4)  Gather Wood")
+				print("(5)  Craft A New Item")
 				print("(10) Clear Screen")
 				print("(0)  To Quit\n")
 
@@ -52,11 +55,14 @@ class Game(object):
 					player.checkInventory();
 
 				elif(playerInput == 3):
-					player.cutDownTree()
+					inventoryController.startInventoryView(player)
 
 				elif(playerInput == 4):
+					player.cutDownTree()
+
+				elif(playerInput == 5):
 					print("Entering Crafting Screen.\n")
-					crafter.start()
+					player = craftingController.start(player)
 
 				else:
 					print("This is not a valid action\n")
