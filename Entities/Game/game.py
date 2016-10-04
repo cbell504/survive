@@ -1,4 +1,4 @@
-from ..Player.player import Player
+from ..Player.Player import Player
 from ..Activities.Crafting.craftingcontroller import CraftingController
 from ..Inventory.InventoryController import InventoryController
 

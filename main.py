@@ -1,4 +1,3 @@
-from Entities.Player.player import Player
 from Entities.Game.game import Game
 
 def main():
