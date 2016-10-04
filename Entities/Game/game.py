@@ -1,5 +1,6 @@
 from ..Player.player import Player
 from ..Activities.Crafting.craftingcontroller import CraftingController
+from ..Inventory.InventoryController import InventoryController
 
 import platform
 import os
@@ -23,6 +24,7 @@ class Game(object):
 	def start(self, name):
 		player = Player(name)
 		craftingController = CraftingController()
+		inventoryController = InventoryController()
 		
 		while True:
 			playerInput = -1
@@ -53,7 +55,7 @@ class Game(object):
 					player.checkInventory();
 
 				elif(playerInput == 3):
-					pass
+					inventoryController.startInventoryView(player)
 
 				elif(playerInput == 4):
 					player.cutDownTree()
