@@ -1,4 +1,4 @@
-from ..Inventory.inventory import Inventory
+from ..Inventory.Inventory import Inventory
 from Entities.Activities.Crafting.WoodWorking import WoodWorking
 from .Attributes.attribute import Attribute
 

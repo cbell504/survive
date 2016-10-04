@@ -1,4 +1,6 @@
-class InventoryView(object):
+from Entities.View import View
+
+class InventoryView(View):
 	
 	def __init__(self):
 		pass
