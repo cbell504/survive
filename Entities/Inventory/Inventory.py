@@ -1,12 +1,12 @@
 class Inventory(object):
 
 	def __init__(self):
-		self.slots = {'Wood':0, 'Shelter':0, 'Boat':0}
+		self.slots = {'Wood':0}
 		self.slotsMaxSize = 10
 
 	def display(self):
-		for key, value in self.slots.items():
-			print(key,":", value)
+		for k, v in self.slots.items():
+			print(k,":", v)
 		print("\n")
 
 
