@@ -1,0 +1,2 @@
+class Hog(object):
+	pass

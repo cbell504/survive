@@ -1,12 +1,12 @@
 from Entities.Controller import Controller
 from Entities.Inventory.InventoryView import InventoryView
 
-class InventoryController(Controller):
+class HuntingController(Controller):
 	
 	def __init__(self):
 		self.inventoryView = InventoryView()
 
-	def startView(self, player):
+	def startIiew(self, player):
 		while True:
 			playerInput = -1
 			try:
