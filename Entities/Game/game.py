@@ -55,7 +55,7 @@ class Game(object):
 					player.checkInventory();
 
 				elif(playerInput == 3):
-					inventoryController.startInventoryView(player)
+					inventoryController.startView(player)
 
 				elif(playerInput == 4):
 					player.cutDownTree()
