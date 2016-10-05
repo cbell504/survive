@@ -4,13 +4,14 @@ from Entities.Activities.Hunting.HuntingView import HuntingView
 class HuntingController(Controller):
 	
 	def __init__(self):
-		self.inventoryView = InventoryView()
+		self.huntingView = InventoryView()
+		self.hunting = Hunting
 
 	def startView(self, player):
 		while True:
 			playerInput = -1
 			try:
-				self.inventoryView.displayStart()
+				self.huntingView.displayStart()
 
 				playerInput = int(input("Enter an action.\n"))
 				print("\n")
@@ -18,14 +19,20 @@ class HuntingController(Controller):
 				self.clearScreen()
 
 				if(playerInput == 0 ):
-					self.inventoryView.displayEnd()
+					self.huntingView.displayEnd()
 					break
 
 				elif(playerInput == 10):
 					self.clearScreen()
 
 				elif(playerInput == 1):
-					player.inventory.display()
+					if(self.hunting.chanceToFindAnimal):
+						pass
+					else:
+						self.huntingView.displayNoAnimalFound()
+
+
+					
 
 				else:
 					print("This is not a valid action\n")
