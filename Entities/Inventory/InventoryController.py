@@ -31,7 +31,7 @@ class InventoryController(Controller):
 					player.inventory.display()
 
 				elif(playerInput == 3):
-					
+					pass
 
 				else:
 					print("This is not a valid action\n")

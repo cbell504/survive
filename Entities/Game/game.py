@@ -1,5 +1,5 @@
 from ..Player.Player import Player
-from ..Activities.Crafting.craftingcontroller import CraftingController
+from ..Activities.Crafting.CraftingController import CraftingController
 from ..Inventory.InventoryController import InventoryController
 
 import platform
