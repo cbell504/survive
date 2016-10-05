@@ -1,12 +1,12 @@
-from ..Player.Player import Player
-from ..Activities.Crafting.CraftingController import CraftingController
-from ..Inventory.InventoryController import InventoryController
+from Entities.Player.PlayerModel import Player
+from Entities.Activities.Crafting.CraftingController import CraftingController
+from Entities.Inventory.InventoryController import InventoryController
 
 import platform
 import os
 import time
 
-class Game(object):
+class GameController(object):
 
 	def __init__(self):
 		self.system = ""

@@ -1,2 +1,2 @@
-class Activity:
+class Activity(Model):
 	pass

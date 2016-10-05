@@ -1,6 +1,6 @@
-from ..Inventory.Inventory import Inventory
-from Entities.Activities.Crafting.WoodWorking.WoodWorking import WoodWorking
-from .Attributes.attribute import Attribute
+from Entities.Inventory.InventoryModel import Inventory
+from Entities.Activities.Crafting.WoodWorking.WoodWorkingModel import WoodWorking
+from Entities.Player.Attributes.AttributeModel import Attribute
 
 class Player(object):
 	def __init__(self, playerName):
