@@ -1,5 +1,5 @@
 from ..Inventory.Inventory import Inventory
-from Entities.Activities.Crafting.WoodWorking import WoodWorking
+from Entities.Activities.Crafting.WoodWorking.WoodWorking import WoodWorking
 from .Attributes.attribute import Attribute
 
 class Player(object):
