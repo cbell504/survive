@@ -27,6 +27,12 @@ class InventoryController(Controller):
 				elif(playerInput == 1):
 					player.inventory.display()
 
+				elif(playerInput == 2):
+					player.inventory.display()
+
+				elif(playerInput == 3):
+					
+
 				else:
 					print("This is not a valid action\n")
 
