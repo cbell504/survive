@@ -10,7 +10,6 @@ class InventoryView(View):
 		print("(1)  Display Inventory")
 		print("(2)  Eat Food")  
 		print("(3)  Craft") # Point to CrafterView
-		print("(5) 	Place Shelter")
 		print("(9)  Use Boat") # End Game choice
 		print("(10) Clear Screen")
 		print("(0)  Back To Game\n")

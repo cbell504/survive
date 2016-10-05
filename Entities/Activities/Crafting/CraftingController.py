@@ -1,11 +1,10 @@
-from .crafting import Crafting
 from Entities.Activities.Crafting.WoodWorkingController import WoodWorkingController
 from Entities.Controller import Controller
 
 class CraftingController(Controller):
 	
 	def __init__(self):
-		self.crafter = Crafting()
+		#self.crafter = Crafting()
 		self.WoodControl = WoodWorkingController()
 
 	def start(self, player):

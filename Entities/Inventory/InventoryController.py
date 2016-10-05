@@ -1,12 +1,13 @@
 from Entities.Controller import Controller
 from Entities.Inventory.InventoryView import InventoryView
+from Entities.Activities.Crafting import CraftingController
 
 class InventoryController(Controller):
 	
 	def __init__(self):
 		self.inventoryView = InventoryView()
 
-	def startView(self, player):
+	def start(self, player):
 		while True:
 			playerInput = -1
 			try:
@@ -21,17 +22,21 @@ class InventoryController(Controller):
 					self.inventoryView.displayEnd()
 					break
 
-				elif(playerInput == 10):
-					self.clearScreen()
-
 				elif(playerInput == 1):
 					player.inventory.display()
 
 				elif(playerInput == 2):
-					player.inventory.display()
+					player.eatFood()
 
 				elif(playerInput == 3):
+					craftingController = CraftingController()
+					player = craftingController.start(player)
+
+				elif(playerInput == 9):
 					pass
+
+				elif(playerInput == 10):
+					self.clearScreen()
 
 				else:
 					print("This is not a valid action\n")
