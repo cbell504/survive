@@ -1,4 +1,4 @@
-from Entities.Activities.Crafting.WoodWorkingController import WoodWorkingController
+from Entities.Activities.Crafting.WoodWorking.WoodWorkingController import WoodWorkingController
 from Entities.Controller import Controller
 
 class CraftingController(Controller):
