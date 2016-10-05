@@ -1,5 +1,5 @@
-from ..Player.player import Player
-from ..Activities.Crafting.craftingcontroller import CraftingController
+from ..Player.Player import Player
+from ..Activities.Crafting.CraftingController import CraftingController
 from ..Inventory.InventoryController import InventoryController
 
 import platform
@@ -55,7 +55,7 @@ class Game(object):
 					player.checkInventory();
 
 				elif(playerInput == 3):
-					inventoryController.startInventoryView(player)
+					inventoryController.start(player)
 
 				elif(playerInput == 4):
 					player.cutDownTree()

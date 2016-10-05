@@ -4,6 +4,7 @@ from .Attributes.attribute import Attribute
 
 class Player(object):
 	def __init__(self, playerName):
+		self.playerHealth = 10
 		self.playerLevel = 1
 		self.playerName = playerName
 		self.playerStamina = 10
@@ -17,6 +18,7 @@ class Player(object):
 	def checkStats(self):
 		print("Player Stats")
 		print("Current level: ", self.playerLevel)
+		print("Current Health: ", self.playerHealth)
 		print("Strength: ", self.playerStrength.attributeLevel, "\n")
 
 	def cutDownTree(self):
@@ -27,8 +29,9 @@ class Player(object):
 			#TODO Make wood working class give out wood
 			if(self.woodWorkingSkill.isWoodGained()):
 				print("You got 1 piece of wood!\n")
-				self.inventory.slots['Wood'] += 1
+				self.inventory.addItem('Wood', 1)
 				self.playerStrength.gainExp()
+
 			else:
 				print("You failed to cut the tree.\n")
 
