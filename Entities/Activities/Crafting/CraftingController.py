@@ -5,7 +5,7 @@ class CraftingController(Controller):
 	
 	def __init__(self):
 		#self.crafter = Crafting()
-		self.WoodControl = WoodWorkingController()
+		pass
 
 	def start(self, player):
 		while True:
@@ -29,7 +29,8 @@ class CraftingController(Controller):
 					player.inventory.display()
 
 				elif(playerInput == 1):
-					player = self.WoodControl.start(player)
+					woodworkingController = WoodWorkingController()
+					player = woodworkingController.start(player)
 
 				else:
 					print("This is not a valid action\n")
