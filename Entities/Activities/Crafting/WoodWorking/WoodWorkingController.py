@@ -29,14 +29,14 @@ class WoodWorkingController(Controller):
 					self.clearScreen()
 
 				elif(playerInput == 1):
-					woodworker = WoodWorking(player)
+					woodworker = WoodWorking()
 
-					player = woodworker.buildShelter(totalWood)
+					player = woodworker.buildShelter(totalWood, player)
 
 				elif(playerInput == 2):
-					woodworker = WoodWorking(player)
+					woodworker = WoodWorking()
 
-					player = woodworker.buildBoat(totalWood)
+					player = woodworker.buildBoat(totalWood, player)
 
 
 				else:

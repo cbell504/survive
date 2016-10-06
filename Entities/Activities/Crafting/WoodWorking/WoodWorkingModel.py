@@ -9,11 +9,10 @@ from random import randint
 #TODO Make this send up a dic to upper controllers
 class WoodWorking(object):
 	
-	def __init__(self, player):
+	def __init__(self):
 		self.skillLevel = 1
 		self.percentageToCut = 2
 		self.itemBuilt = 0
-		self.player = player
 
 
 	def isWoodGained(self):
@@ -23,22 +22,22 @@ class WoodWorking(object):
 		else:
 			return False
 
-	def buildBoat(self, totalWood):
+	def buildBoat(self, totalWood, player):
 		if(totalWood >= 10):
-			print("You have built a boat.")
-			self.player.inventory.slots['Boat'] += 1
-			self.player.inventory.slots['Wood'] -= 10
+			print("You have built a boat.\n")
+			player.inventory.slots['Boat'] += 1
+			player.inventory.slots['Wood'] -= 10
 		else:
-			print("You don't have enough wood")
+			print("You don't have enough wood.\n")
 	
-		return self.player
+		return player
 
-	def buildShelter(self, totalWood):
+	def buildShelter(self, totalWood, player):
 		if(totalWood >= 5):
-			print("You have built a Shelter.")
-			self.itemBuilt = 2
-			return self.itemBuilt
+			print("You have built a Shelter.\n")
+			player.inventory.slots['Shelter'] += 1
+			player.inventory.slots['Wood'] -= 5
 		else:
-			print("You don't have enough wood")
-			self.itemBuilt = 0
-			return self.itemBuilt
+			print("You don't have enough wood.\n")
+
+		return player

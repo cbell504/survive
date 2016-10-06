@@ -10,7 +10,7 @@ class Player(object):
 		self.playerStamina = 10
 		self.playerStrength = Attribute()
 		self.inventory = Inventory()
-		self.woodWorkingSkill = WoodWorking(self.inventory)
+		self.woodWorkingSkill = WoodWorking()
 
 
 	def basicAttack(self):
