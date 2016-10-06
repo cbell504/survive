@@ -2,9 +2,21 @@ from Entities.Generic.View import View
 
 class CombatView(View):
 	def __init__(self):
-		pass
+		self.enemyName = "Something"
+		self.enemyHealth = 1
+		self.playerName = "Player"
+		self.playerHealth = 1
+
+	def enemyAppears(self):
+		print("Wild " + self.enemyName + " appeared.\n")
 
 	def displayStart(self):
+		print(self.enemyName)
+		print("Health: " + str(self.enemyHealth) + "\n")
+
+		print("You")
+		print("Health: " + str(self.playerHealth) + "\n")
+
 		print("Possible Actions:\n")
 		print("(1)  Attack")
 		print("(2)  Defend")
@@ -21,3 +33,6 @@ class CombatView(View):
 
 	def displayRequestAction(self):
 		print("Enter an action.\n")
+
+	def win(self):
+		print("You have defeated the " + self.enemyName + ".\n")

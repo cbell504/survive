@@ -12,6 +12,10 @@ class Player(object):
 		self.inventory = Inventory()
 		self.woodWorkingSkill = WoodWorking(self.inventory)
 
+
+	def basicAttack(self):
+		return 2
+
 	def checkInventory(self):
 		self.inventory.display()
 

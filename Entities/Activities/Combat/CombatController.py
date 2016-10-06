@@ -16,12 +16,17 @@ class CombatController(Controller):
 		# 
 		enemyController = EnemyController()
 		enemyController.generateEnemy()
+		self.combatView.enemyName = enemyController.enemy.name
 
-		print("Wild " + enemyController.enemy.name + " appeared.\n")
+		self.combatView.enemyAppears()
 
 		#enemy = Hog
 
 		while(enemyController.enemy.health >=0):
+
+			self.combatView.enemyHealth = enemyController.enemy.health
+			self.combatView.playerHealth = player.playerHealth
+
 			playerInput = -1
 			try:
 				self.combatView.displayStart()
@@ -35,12 +40,13 @@ class CombatController(Controller):
 					self.combatView.displayEnd()
 					break
 
+				elif(playerInput == 1):
+					enemyController.enemy.health -= player.basicAttack()
+
 				elif(playerInput == 10):
 					self.clearScreen()
 
-				elif(playerInput == 1):
-					pass
-
+			
 
 				else:
 					print("This is not a valid action\n")
@@ -50,6 +56,8 @@ class CombatController(Controller):
 			except:
 				print("Error occurred.\n")
 				raise
+
+		self.combatView.win()
 
 		return player
 
