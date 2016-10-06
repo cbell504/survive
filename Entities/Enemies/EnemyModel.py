@@ -1,5 +1,5 @@
 class Enemy:
 	
 	def __init__(self):
-		self.enemyHealth = 10
-		
+		self.health = 10
+		self.name = "Enemy"

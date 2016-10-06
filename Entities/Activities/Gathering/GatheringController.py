@@ -1,8 +1,8 @@
 from Entities.Generic.Controller import Controller
-from Entities.Inventory.InventoryView import InventoryView
+from Entities.Activities.Gathering.GatheringView import GatheringView
 from Entities.Activities.Crafting.CraftingController import CraftingController
 
-class InventoryController(Controller):
+class GatheringController(Controller):
 	
 	def __init__(self):
 		self.inventoryView = InventoryView()
