@@ -1,15 +1,28 @@
 from Entities.Generic.Controller import Controller
-from Entities.Activities.Hunting.HuntingView import HuntingView
-from Entities.Activities.Hunting.HuntingModel import Hunting
-from Entities.Activities.Combat.CombatController import CombatController
+from Entities.Activities.Combat.CombatView import CombatView
 
-class HuntingController(Controller):
+from Entities.Enemies.EnemyModel import Enemy
+from Entities.Enemies.HogModel import Hog
+
+class EnemyController(Controller):
 	
 	def __init__(self):
-		self.huntingView = HuntingView()
-		self.hunting = Hunting()
+		self.enemy = Enemy()
+
+	def generateEnemy(self):
+		self.enemy = Hog()
+
+	def getEnemyAttack(self):
+		return self.enemy.basicAttack()
 
 	def start(self, player):
+
+		# 
+		# Generate enemy here
+		# Create spawner class and spawner will talk to combat to say what the enemy is doing
+		# 
+
+		enemy = Hog
 		while True:
 			playerInput = -1
 			try:

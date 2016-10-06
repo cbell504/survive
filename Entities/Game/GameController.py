@@ -1,7 +1,9 @@
 from Entities.Player.PlayerModel import Player
 from Entities.Activities.Crafting.CraftingController import CraftingController
 from Entities.Inventory.InventoryController import InventoryController
+from Entities.Activities.Hunting.HuntingController import HuntingController
 from Entities.Generic.Controller import Controller
+
 
 import platform
 import os
@@ -36,6 +38,7 @@ class GameController(Controller):
 				print("(3)  Use Item")
 				print("(4)  Gather Wood")
 				print("(5)  Craft A New Item")
+				print("(6)  Go Hunting")
 				print("(10) Clear Screen")
 				print("(0)  To Quit\n")
 
@@ -64,6 +67,11 @@ class GameController(Controller):
 				elif(playerInput == 5):
 					print("Entering Crafting Screen.\n")
 					player = craftingController.start(player)
+
+				elif(playerInput == 6):
+					print("Entering Hunting Screen.\n")
+					huntingController = HuntingController()
+					player = huntingController.start(player)
 
 				else:
 					print("This is not a valid action\n")

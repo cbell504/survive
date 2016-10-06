@@ -9,7 +9,7 @@ class Hunting(object):
 
 	def chanceToFindAnimal(self):
 		ranNum = randint(1,10)
-		if(ranNum =< 6):
+		if(ranNum <= 7):
 			return True
 		else:
 			return False
