@@ -1,4 +1,4 @@
-from Entities.Controller import Controller
+from Entities.Generic.Controller import Controller
 from Entities.Activities.Hunting.HuntingView import HuntingView
 
 class HuntingController(Controller):

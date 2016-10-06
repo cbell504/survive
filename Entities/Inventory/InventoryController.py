@@ -1,4 +1,4 @@
-from Entities.Controller import Controller
+from Entities.Generic.Controller import Controller
 from Entities.Inventory.InventoryView import InventoryView
 from Entities.Activities.Crafting.CraftingController import CraftingController
 

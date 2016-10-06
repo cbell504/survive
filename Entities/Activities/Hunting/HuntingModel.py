@@ -9,7 +9,7 @@ class Hunting(object):
 
 	def chanceToFindAnimal(self):
 		ranNum = randint(1,10)
-		if(ranNum % self.percentageToCatch == 0):
+		if(ranNum =< 6):
 			return True
 		else:
 			return False

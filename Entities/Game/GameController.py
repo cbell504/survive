@@ -1,12 +1,13 @@
 from Entities.Player.PlayerModel import Player
 from Entities.Activities.Crafting.CraftingController import CraftingController
 from Entities.Inventory.InventoryController import InventoryController
+from Entities.Generic.Controller import Controller
 
 import platform
 import os
 import time
 
-class GameController(object):
+class GameController(Controller):
 
 	def __init__(self):
 		self.system = ""
