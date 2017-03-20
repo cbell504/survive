@@ -1,31 +1,12 @@
-from Entities.Player.PlayerModel import Player
-from Entities.Activities.Crafting.CraftingController import CraftingController
-from Entities.Inventory.InventoryController import InventoryController
-from Entities.Activities.Hunting.HuntingController import HuntingController
-from Entities.Generic.Controller import Controller
+from Generic.View import View
 
+class GameView(View):
+    
+    def __init__(self):
+        pass
 
-import platform
-import os
-import time
-
-class GameController(Controller):
-
-	def __init__(self):
-		self.system = ""
-
-	def clearScreen(self):
-		self.getPlatform()
-		if(self.system == "Windows"):
-			os.system('cls')
-		else:
-			os.system('clear')
-
-	def getPlatform(self):
-		self.system = platform.system()
-
-	def start(self, name):
-		player = Player(name)
+    def startView(self, name):
+		player = PlayerModel(name)
 		craftingController = CraftingController()
 		inventoryController = InventoryController()
 		
@@ -81,6 +62,3 @@ class GameController(Controller):
 			except:
 				print("Error occurred.\n")
 				raise
-
-
-			

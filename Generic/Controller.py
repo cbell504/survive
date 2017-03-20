@@ -5,6 +5,7 @@ class Controller(object):
 	def __init__(self):
 		pass
 
+
 	def clearScreen(self):
 		self.getPlatform()
 		if(self.system == "Windows"):
@@ -14,3 +15,7 @@ class Controller(object):
 
 	def getPlatform(self):
 		self.system = platform.system()
+
+	
+	def start(self):
+		pass

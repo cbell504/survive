@@ -7,14 +7,11 @@ from random import randint
 
 
 #TODO Make this send up a dic to upper controllers
-class WoodWorking(object):
+class WoodWorkingModel(object):
 	
 	def __init__(self, player):
-		self.skillLevel = 1
 		self.percentageToCut = 2
 		self.itemBuilt = 0
-		self.player = player
-
 
 	def isWoodGained(self):
 		ranNum = randint(1,10)

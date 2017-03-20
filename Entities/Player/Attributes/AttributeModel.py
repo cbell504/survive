@@ -1,4 +1,4 @@
-class Attribute(object):
+class AttributeModel(object):
 	
 	def __init__(self):
 		self.attributeLevel = 1

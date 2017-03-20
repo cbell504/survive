@@ -1,5 +1,5 @@
-from Entities.Generic.Controller import Controller
-from Entities.Activities.Crafting.WoodWorking.WoodWorkingModel import WoodWorking
+from Generic.Controller import Controller
+from Activities.Crafting.WoodWorking.WoodWorkingModel import WoodWorkingModel
 
 class WoodWorkingController(Controller):
 	def __init__(self):
@@ -29,7 +29,7 @@ class WoodWorkingController(Controller):
 					self.clearScreen()
 
 				elif(playerInput == 1):
-					woodworker = WoodWorking(player)
+					woodworker = WoodWorkingModel(player)
 
 					player = woodworker.buildShelter(totalWood)
 

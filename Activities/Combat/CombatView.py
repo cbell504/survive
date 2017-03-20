@@ -1,6 +1,7 @@
-from Entities.Generic.View import View
+from Generic.View import View
 
 class CombatView(View):
+
 	def __init__(self):
 		self.enemyName = "Something"
 		self.enemyHealth = 1

@@ -1,11 +1,13 @@
-from Entities.Game.GameController import GameController
+from Game.GameController import GameController
+from Entities.Player.PlayerModel import PlayerModel
 
 def main():
 	print("Welcome to Surivthon.\n ")
 
 	playerInput = input("Please enter your name.\n")
+	player = PlayerModel(playerInput)
 
-	game = GameController()
-	game.start(playerInput)
+	game = GameController(player)
+	game.start()
 
 if __name__ == "__main__": main()

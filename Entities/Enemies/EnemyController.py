@@ -1,5 +1,5 @@
-from Entities.Generic.Controller import Controller
-from Entities.Activities.Combat.CombatView import CombatView
+from Generic.Controller import Controller
+from Activities.Combat.CombatView import CombatView
 
 from Entities.Enemies.EnemyModel import Enemy
 from Entities.Enemies.HogModel import Hog
