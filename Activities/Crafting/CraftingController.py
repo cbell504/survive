@@ -1,22 +1,20 @@
 from Generic.Controller import Controller
 
+from Activities.Crafting.CraftingView import CraftingView
 from Activities.Crafting.WoodWorking.WoodWorkingController import WoodWorkingController
 
 class CraftingController(Controller):
 	
 	def __init__(self):
 		#self.crafter = Crafting()
-		pass
+		self.craftingView = CraftingView()
 
-	def start(self, player):
+	def startController(self, player):
 		while True:
+			self.craftingView.startView()
+
 			playerInput = -1
 			try:
-				print("Possible Actions:\n")
-				print("(1)  Wood Working")
-				print("(10) Clear Screen")
-				print("(0)  Back To Game\n")
-
 				playerInput = int(input("Enter an action.\n"))
 				print("\n")
 				self.clearScreen()

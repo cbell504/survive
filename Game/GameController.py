@@ -8,17 +8,14 @@ from Entities.Inventory.InventoryController import InventoryController
 from Activities.Crafting.CraftingController import CraftingController
 from Activities.Hunting.HuntingController import HuntingController
 
-
 import platform
-import os
-import time
 
 class GameController(Controller):
 
 	def __init__(self, player):
 		self.system = ""
 		self.player = player
-		self.gameView = GameView(self.getPlatform())
+		self.gameView = GameView()
 		self.craftingController = CraftingController()
 		self.inventoryController = InventoryController()
 		self.huntingController = HuntingController()
@@ -31,13 +28,13 @@ class GameController(Controller):
 				self.gameView.startView()
 
 				playerInput = int(input("Enter an action.\n\n"))
-				self.gameView.clearScreen()
+				self.clearScreen()
 
 				if(playerInput == 0 ):
 					print("You have quited the game.\n")
 					break
 				elif(playerInput == 10):
-					self.gameView.clearScreen()
+					self.clearScreen()
 
 				elif(playerInput == 1):
 					self.player.checkStats()
@@ -46,18 +43,18 @@ class GameController(Controller):
 					self.player.checkInventory();
 
 				elif(playerInput == 3):
-					self.inventoryController.start(self.player)
+					self.inventoryController.startController(self.player)
 
 				elif(playerInput == 4):
 					self.player.cutWood()
 
 				elif(playerInput == 5):
 					print("Entering Crafting Screen.\n")
-					self.player = self.craftingController.start(self.player)
+					self.player = self.craftingController.startController(self.player)
 
 				elif(playerInput == 6):
 					print("Entering Hunting Screen.\n")
-					self.player = self.huntingController.start(self.player)
+					self.player = self.huntingController.startController(self.player)
 
 				else:
 					print("This is not a valid action\n")

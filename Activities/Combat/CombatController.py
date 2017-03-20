@@ -10,7 +10,7 @@ class CombatController(Controller):
         self.combatView = CombatView(self.getPlatform())
         self.enemyController = EnemyController()
         
-    def start(self, player):
+    def startController(self, player):
         #
         # Generate enemy here
         # Create spawner class and spawner will talk to combat to say what the enemy is doing

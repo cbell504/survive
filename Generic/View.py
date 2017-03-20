@@ -1,15 +1,8 @@
-import os
 
 class View(object):
 	
-	def __init__(self, platform):
-		self.system = platform
-
-	def clearScreen(self):
-		if(self.system == "Windows"):
-			os.system('cls')
-		else:
-			os.system('clear')
+	def __init__(self):
+		pass
 
 	def displayInventoryEnd(self):
 		print("Moving back to game.\n")

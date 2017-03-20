@@ -6,7 +6,7 @@ class HuntingView(View):
 		print("Possible Actions:\n")
 		print("(1)  Hunt")
 		print("(10) Clear Screen")
-		print("(0)  Back To Game\n")
+		print("(0)  Back To Main Screen\n")
 
 	def displayNoAnimalFound(self):
 		print("You did not find an animial to fight.")

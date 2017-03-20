@@ -5,20 +5,16 @@ from Activities.Crafting.WoodWorking.WoodWorkingModel import WoodWorkingModel
 class WoodWorkingController(Controller):
 	def __init__(self):
 		self.itemBuilt = 0
+		self.woodWorkingView = WoodWorkingView()
 
 	def start(self, player):
 		totalWood = player.inventory.slots['Wood']
 
 		while True:
 			playerInput = -1
+			self.woodWorkingView.startView()
+			
 			try:
-				print("Possible Actions:\n")
-				print("(1)  Build A Shelter")
-				print("(2)  Build A Boat")
-				print("(10) Clear Screen")
-				print("(0)  Back To Crafting\n")
-
-
 				playerInput = int(input("Enter an action.\n"))
 				print("\n")
 				self.clearScreen()
@@ -30,6 +26,7 @@ class WoodWorkingController(Controller):
 					self.clearScreen()
 
 				elif(playerInput == 1):
+					#TODO: Fix this junk
 					woodworker = WoodWorkingModel(player)
 
 					player = woodworker.buildShelter(totalWood)

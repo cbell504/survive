@@ -7,7 +7,7 @@ from Activities.Combat.CombatController import CombatController
 class HuntingController(Controller):
 	
 	def __init__(self):
-		self.huntingView = HuntingView(self.getPlatform)
+		self.huntingView = HuntingView()
 		self.hunting = HuntingModel()
 
 	def start(self, player):

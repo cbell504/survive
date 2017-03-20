@@ -16,6 +16,5 @@ class Controller(object):
 	def getPlatform(self):
 		self.system = platform.system()
 
-	
 	def startController(self):
 		pass
