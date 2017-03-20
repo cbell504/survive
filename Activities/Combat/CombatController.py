@@ -28,7 +28,7 @@ class CombatController(Controller):
 
             playerInput = -1
             try:
-                self.combatView.displayStart()
+                self.combatView.startView()
 
                 playerInput = int(input("Enter an action.\n"))
                 print("\n")

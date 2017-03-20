@@ -34,9 +34,6 @@ class HuntingController(Controller):
 					else:
 						self.huntingView.displayNoAnimalFound()
 
-
-					
-
 				else:
 					print("This is not a valid action\n")
 

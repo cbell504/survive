@@ -11,7 +11,7 @@ class CombatView(View):
 	def enemyAppears(self):
 		print("Wild " + self.enemyName + " appeared.\n")
 
-	def displayStart(self):
+	def startView(self):
 		print(self.enemyName)
 		print("Health: " + str(self.enemyHealth) + "\n")
 

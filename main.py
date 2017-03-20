@@ -8,6 +8,6 @@ def main():
 	player = PlayerModel(playerInput)
 
 	game = GameController(player)
-	game.start()
+	game.startController()
 
 if __name__ == "__main__": main()

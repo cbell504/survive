@@ -29,9 +29,9 @@ class PlayerModel(object):
 
     def checkStats(self):
         print("Player Stats")
-        print("Current level: ", self.playerLevel)
-        print("Current Health: ", self.playerHealth)
-        print("Strength: ", self.playerStrength.attributeLevel, "\n")
+        print("Current level: ", self.level)
+        print("Current Health: ", self.health)
+        print("Strength: ", self.strength.attributeLevel, "\n")
 
 #TODO: Delete this function
     def cutWood(self, woodWorker):

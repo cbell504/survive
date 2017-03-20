@@ -2,9 +2,9 @@ import platform
 import os
 
 class Controller(object):
+
 	def __init__(self):
 		pass
-
 
 	def clearScreen(self):
 		self.getPlatform()
@@ -17,5 +17,5 @@ class Controller(object):
 		self.system = platform.system()
 
 	
-	def start(self):
+	def startController(self):
 		pass

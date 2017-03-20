@@ -1,9 +1,11 @@
+import os
+
 class View(object):
-	def __init__(self):
-		pass
+	
+	def __init__(self, platform):
+		self.system = platform
 
 	def clearScreen(self):
-		self.getPlatform()
 		if(self.system == "Windows"):
 			os.system('cls')
 		else:
