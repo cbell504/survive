@@ -1,13 +1,14 @@
 from Generic.Controller import Controller
+
 from Activities.Hunting.HuntingView import HuntingView
-from Activities.Hunting.HuntingModel import Hunting
+from Activities.Hunting.HuntingModel import HuntingModel
 from Activities.Combat.CombatController import CombatController
 
 class HuntingController(Controller):
 	
 	def __init__(self):
-		self.huntingView = HuntingView()
-		self.hunting = Hunting()
+		self.huntingView = HuntingView(self.getPlatform)
+		self.hunting = HuntingModel()
 
 	def start(self, player):
 		while True:

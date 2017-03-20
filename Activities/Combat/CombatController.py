@@ -1,4 +1,5 @@
 from Generic.Controller import Controller
+
 from Activities.Combat.CombatView import CombatView
 from Entities.Enemies.EnemyController import EnemyController
 
@@ -6,29 +7,25 @@ from Entities.Enemies.EnemyController import EnemyController
 class CombatController(Controller):
     
     def __init__(self):
-        self.combatView = CombatView()
+        self.combatView = CombatView(self.getPlatform())
+        self.enemyController = EnemyController()
         
     def start(self, player):
         #
         # Generate enemy here
         # Create spawner class and spawner will talk to combat to say what the enemy is doing
         #
-        enemyController = EnemyController()
-        enemyController.generateEnemy()
-        self.combatView.enemyName = enemyController.enemy.name
 
-        self.combatView.enemyAppears()
+        enemy = self.enemyController.generateGenericEnemy()
+
+        self.combatView.enemyAppears(enemy)
 
         #enemy = Hog
 
-        while enemyController.enemy.health >= 0:
-
-            self.combatView.enemyHealth = enemyController.enemy.health
-            self.combatView.playerHealth = player.playerHealth
-
+        while enemy.isEnemyAlive():
             playerInput = -1
             try:
-                self.combatView.startView()
+                self.combatView.startView(enemy, player)
 
                 playerInput = int(input("Enter an action.\n"))
                 print("\n")
@@ -40,7 +37,13 @@ class CombatController(Controller):
                     break
 
                 elif(playerInput == 1):
-                    enemyController.enemy.health -= player.basicAttack()
+                    enemy.setHealth(enemy.getHealth() - player.getBasicAttack())
+
+                elif(playerInput == 2):
+                    pass
+                
+                elif(playerInput == 3):
+                    enemy.setLevel(0)
 
                 elif(playerInput == 10):
                     self.clearScreen()
@@ -53,7 +56,8 @@ class CombatController(Controller):
             except:
                 print("Error occurred.\n")
                 raise
-
-        self.combatView.win()
+    
+        if(enemy.isEnemyAlive() == False):
+            self.combatView.win(enemy)
 
         return player

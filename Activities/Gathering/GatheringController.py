@@ -1,6 +1,7 @@
-from Entities.Generic.Controller import Controller
-from Entities.Activities.Gathering.GatheringView import GatheringView
-from Entities.Activities.Crafting.CraftingController import CraftingController
+from Generic.Controller import Controller
+
+from Activities.Gathering.GatheringView import GatheringView
+from Activities.Crafting.CraftingController import CraftingController
 
 class GatheringController(Controller):
 	

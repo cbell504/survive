@@ -1,11 +1,10 @@
-from Entities.Enemies.EnemyModel import Enemy
+from Entities.Enemies.EnemyModel import EnemyModel
 
-class Hog(Enemy):
+class HogModel(EnemyModel):
 	
 	def __init__(self):
 		self.name    		= "Hog"
-		self.health 		= 5 
-		self.level   		= 1
+		self.health 		= 5
 		self.attacks 		= {"Bite": 1}
 		self.specialAttacks = {"Ram" : 2}
 

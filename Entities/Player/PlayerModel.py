@@ -1,10 +1,11 @@
 """ This is the Player class and it handles data related to the Player instance. """
+from Generic.Model import Model
 
 from Entities.Inventory.InventoryModel import InventoryModel
 from Entities.Player.Attributes.AttributeModel import AttributeModel
 
 
-class PlayerModel(object):
+class PlayerModel(Model):
 
     def __init__(self, playerName):
         self.health = 10

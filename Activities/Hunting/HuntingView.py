@@ -1,8 +1,6 @@
 from Generic.View import View
 
 class HuntingView(View):
-	def __init__(self):
-		pass
 
 	def displayStart(self):
 		print("Possible Actions:\n")

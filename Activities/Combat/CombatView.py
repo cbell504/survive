@@ -2,21 +2,15 @@ from Generic.View import View
 
 class CombatView(View):
 
-	def __init__(self):
-		self.enemyName = "Something"
-		self.enemyHealth = 1
-		self.playerName = "Player"
-		self.playerHealth = 1
+	def enemyAppears(self, enemy):
+		print("Wild " + enemy.getName() + " appeared.\n")
 
-	def enemyAppears(self):
-		print("Wild " + self.enemyName + " appeared.\n")
-
-	def startView(self):
-		print(self.enemyName)
-		print("Health: " + str(self.enemyHealth) + "\n")
+	def startView(self, enemy, player):
+		print(enemy.getName())
+		print("Health: " + str(enemy.getHealth()) + "\n")
 
 		print("You")
-		print("Health: " + str(self.playerHealth) + "\n")
+		print("Health: " + str(player.getHealth()) + "\n")
 
 		print("Possible Actions:\n")
 		print("(1)  Attack")
@@ -35,5 +29,5 @@ class CombatView(View):
 	def displayRequestAction(self):
 		print("Enter an action.\n")
 
-	def win(self):
-		print("You have defeated the " + self.enemyName + ".\n")
+	def win(self, enemy):
+		print("You have defeated the " + enemy.getName() + ".\n")

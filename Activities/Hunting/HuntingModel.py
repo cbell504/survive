@@ -1,10 +1,11 @@
+from Generic.Model import Model
+
 from random import randint
 
-class Hunting(object):
+class HuntingModel(Model):
 	
-
 	def __init__(self):
-		percentageToCatch = 2
+		self.percentageToCatch = 2
 
 
 	def chanceToFindAnimal(self):

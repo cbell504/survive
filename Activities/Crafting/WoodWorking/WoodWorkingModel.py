@@ -1,3 +1,5 @@
+from Generic.Model import Model
+
 from random import randint
 
 # Items Numbers:
@@ -7,7 +9,7 @@ from random import randint
 
 
 #TODO Make this send up a dic to upper controllers
-class WoodWorkingModel(object):
+class WoodWorkingModel(Model):
 	
 	def __init__(self, player):
 		self.percentageToCut = 2

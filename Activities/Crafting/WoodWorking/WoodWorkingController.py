@@ -1,4 +1,5 @@
 from Generic.Controller import Controller
+
 from Activities.Crafting.WoodWorking.WoodWorkingModel import WoodWorkingModel
 
 class WoodWorkingController(Controller):
