@@ -47,7 +47,7 @@ class GameController(Controller):
 				self.clearScreen()
 
 				if(playerInput == 0 ):
-					print("You have quited.\n")
+					print("You have quit.\n")
 					break
 				elif(playerInput == 10):
 					self.clearScreen()
