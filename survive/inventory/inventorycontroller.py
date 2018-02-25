@@ -4,7 +4,6 @@ from survive.activities.crafting.craftingcontroller import CraftingController
 
 
 class InventoryController(Controller):
-
     def __init__(self):
         self.view = {
             0: "Possible Actions:\n",
