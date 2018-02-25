@@ -60,7 +60,7 @@ class Player(object):
 		self.player_health = 0
 
 	def level_up(self, level_gained):
-		self.player_level = (self.playerLevel + level_gained)
+		self.player_level = (self.player_level + level_gained)
 
 	def reduce_health(self, damage_taken):
 		self.player_health = (self.player_health - damage_taken)
