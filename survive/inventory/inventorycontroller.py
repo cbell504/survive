@@ -5,38 +5,38 @@ from survive.activities.crafting.craftingcontroller import CraftingController
 class InventoryController(Controller):
     
     def __init__(self):
-        self.inventoryView = InventoryView()
+        self.inventory_view = InventoryView()
 
-    def startController(self, player):
+    def start(self, player):
         while True:
-            playerInput = -1
+            player_input = -1
             try:
-                self.inventoryView.displayStart()
+                self.inventory_view.display_start()
 
-                playerInput = int(input("Enter an action.\n"))
+                player_input = int(input("Enter an action.\n"))
                 print("\n")
 
-                self.clearScreen()
+                super().clear_screen()
 
-                if(playerInput == 0 ):
-                    self.inventoryView.displayEnd()
+                if(player_input == 0 ):
+                    self.inventory_view.display_end()
                     break
 
-                elif(playerInput == 1):
+                elif(player_input == 1):
                     player.inventory.display()
 
-                elif(playerInput == 2):
-                    player.eatFood()
+                elif(player_input == 2):
+                    player.eat_food()
 
-                elif(playerInput == 3):
-                    craftingController = CraftingController()
-                    player = craftingController.start(player)
+                elif(player_input == 3):
+                    crafting_controller = CraftingController()
+                    player = crafting_controller.start(player)
 
-                elif(playerInput == 9):
+                elif(player_input == 9):
                     pass
 
-                elif(playerInput == 10):
-                    self.clearScreen()
+                elif(player_input == 10):
+                    super.clear_screen()
 
                 else:
                     print("This is not a valid action\n")

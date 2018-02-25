@@ -5,7 +5,7 @@ class InventoryView(View):
     def __init__(self):
         pass
 
-    def displayStart(self):
+    def display_start(self):
         print("Possible Actions:\n")
         print("(1)  Display Inventory")
         print("(2)  Eat Food")  
@@ -15,8 +15,8 @@ class InventoryView(View):
         print("(0)  Back To Game\n")
 
 
-    def displayEnd(self):
+    def display_end(self):
         print("Moving back to game.\n")
 
-    def displayRequestAction(self):
+    def display_request_action(self):
         print("Enter an action.\n")

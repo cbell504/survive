@@ -26,18 +26,18 @@ class Player(object):
         print("Player Stats")
         print("Current level: ", self.player_level)
         print("Current Health: ", self.player_health)
-        print("Strength: ", self.player_strength.attributeLevel, "\n")
+        #print("Strength: ", self.player_strength.attributeLevel, "\n")
 
     def cut_down_tree(self):
-        if(self.inventory.isSlotsFull()):
+        if(self.inventory.is_slots_full()):
             print("Your inventory is full!\n")
             print("You didn't pick up the wood.\n")
         else:
             # TODO Make wood working class give out wood
-            if(self.wood_working.isWoodGained()):
+            if(self.wood_working.is_wood_gained()):
                 print("You got 1 piece of wood!\n")
-                self.inventory.addItem('Wood', 1)
-                self.player_strength.gainExp()
+                self.inventory.add_item('Wood', 1)
+                self.player_strength.gain_exp()
 
             else:
                 print("You failed to cut the tree.\n")

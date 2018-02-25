@@ -14,15 +14,15 @@ class Enemy(Model):
         self.DEFAULT_NAME = "Enemy"
 
         # Attack Power
-        self.basicAttack = 1
+        self.basic_attack = 1
         self.DEFAULT_BASIC_ATTACK = 1
-        self.specialAttack = 3
+        self.special_attack = 3
         self.DEFAULT_SPECIAL_ATTACK = 3
 
         self.level = 1
         self.DEFAULT_LEVEL = 1
 
-    def isEnemyAlive(self):
+    def is_enemy_alive(self):
         if(self.health > 1):
             return True
         else:
@@ -31,60 +31,60 @@ class Enemy(Model):
 
     # Getters and Setters
 
-    def getBasicAttack(self):
-        if(self.basicAttack):
-            return self.basicAttack
+    def get_basic_attack(self):
+        if(self.basic_attack):
+            return self.basic_attack
         else:
             return self.DEFAULT_BASIC_ATTACK
 
-    def getHealth(self):
+    def get_health(self):
         return self.health
     
-    def getLevel(self):
+    def get_level(self):
         if(self.level):
             return self.level
         else:
             return self.DEFAULT_LEVEL
 
-    def getName(self):
+    def get_name(self):
         if(self.name):
             return self.name
         else:
             return self.DEFAULT_NAME
 
-    def getSpecialAttack(self):
-        if(self.specialAttack):
-            return self.specialAttack
+    def get_special_attack(self):
+        if(self.special_attack):
+            return self.special_attack
         else:
             return self.DEFAULT_SPECIAL_ATTACK
 
-    def setBasicAttack(self, newBasicAttack):
-        if(newBasicAttack >= 0):
-            self.basicAttack = newBasicAttack
+    def set_basic_attack(self, basic_attack):
+        if(basic_attack >= 0):
+            self.basic_attack = basic_attack
         else:
             try:
                 raise Exception('Enemy Basic Attack was attempted to be set below zero')
             except Exception as error:
                 print("Error Caught: " + repr(error))
     
-    def setHealth(self, newHealth):
-        self.health = newHealth
+    def set_health(self, health):
+        self.health = health
 
-    def setLevel(self, newLevel):
-        if(newLevel >= 1):
-            self.level = newLevel
+    def set_level(self, level):
+        if(level >= 1):
+            self.level = level
         else:
             try:
                 raise Exception('Enemy Level was attempted to be set below one.')
             except Exception as error:
                 print("Error Caught: " + repr(error))
     
-    def setName(self, newName):
-        self.name = newName
+    def set_name(self, name):
+        self.name = name
     
-    def setSpecialAttack(self, newSpecialAttack):
-        if(newSpecialAttack >= 0):
-            self.specialAttack = newSpecialAttack
+    def set_special_attack(self, special_attack):
+        if(special_attack >= 0):
+            self.special_attack = special_attack
         else:
             try:
                 raise Exception('Enemy Special Attack was attempted to be set below zero.')

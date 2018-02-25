@@ -15,14 +15,14 @@ class WoodWorking(object):
         self.itemBuilt = 0
 
 
-    def isWoodGained(self):
+    def is_wood_gained(self):
         ranNum = randint(1,10)
         if(ranNum % self.percentageToCut == 0):
             return True
         else:
             return False
 
-    def buildBoat(self, totalWood, player):
+    def build_boat(self, totalWood, player):
         if(totalWood >= 10):
             print("You have built a boat.\n")
             player.inventory.slots['Boat'] += 1

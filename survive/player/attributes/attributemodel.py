@@ -1,27 +1,27 @@
 class Attribute(object):
 
     def __init__(self):
-        self.attributeLevel = 1
-        self.attributeExpPoints = 0
-        self.attributeExpToNextLevel = 5
+        self.attribute_level = 1
+        self.attribute_exp_points = 0
+        self.attribute_exp_to_next_level = 5
 
-    def gainExp(self):
-        self.attributeExpPoints += 1
-        self.levelUp()
+    def gain_exp(self):
+        self.attribute_exp_points += 1
+        self.level_up()
 
-    def isItTimeToLevelUp(self):
-        if(self.attributeExpPoints >= self.attributeExpToNextLevel):
+    def is_level_up(self):
+        if(self.attribute_exp_points >= self.attribute_exp_to_next_level):
             return True
         else:
             return False
 
-    def levelUp(self):
-        if(self.isItTimeToLevelUp()):
+    def level_up(self):
+        if(self.is_level_up()):
             print("You have leveled up!\n")
-            self.attributeLevel += 1
-            self.attributeExpPoints = 0
-            self.attributeExpToNextLevel = \
-                (self.attributeExpToNextLevel * 2)
+            self.attribute_level += 1
+            self.attribute_exp_points = 0
+            self.attribute_exp_to_next_level = \
+                (self.attribute_exp_to_next_level * 2)
 
         else:
             pass

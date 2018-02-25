@@ -1,7 +1,7 @@
 class Food(object):
     
     def __init__(self):
-        self.healthAmountGain = 0
+        self.health_gained = 0
 
-    def isFoodPoison(self):
+    def is_food_poison(self):
         pass

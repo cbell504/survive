@@ -6,7 +6,7 @@ from survive.enemies.enemycontroller import EnemyController
 class CombatController(Controller):
     
     def __init__(self):
-        self.combatView = CombatView()
+        self.combat_view = CombatView()
 
     def start(self, player):
 
@@ -14,37 +14,37 @@ class CombatController(Controller):
         # Generate enemy here
         # Create spawner class and spawner will talk to combat to say what the enemy is doing
         # 
-        enemyController = EnemyController()
-        enemyController.generateEnemy()
-        self.combatView.enemyName = enemyController.enemy.name
+        enemy_controller = EnemyController()
+        enemy_controller.generate_enemy()
+        self.combat_view.enemyName = enemy_controller.enemy.name
 
-        self.combatView.enemyAppears()
+        self.combat_view.enemy_appears()
 
         #enemy = Hog
 
-        while(enemyController.enemy.health >=0):
+        while(enemy_controller.enemy.health >=0):
 
-            self.combatView.enemyHealth = enemyController.enemy.health
-            self.combatView.playerHealth = player.playerHealth
+            self.combat_view.enemy_health = enemy_controller.enemy.health
+            self.combat_view.player_health = player.player_health
 
             playerInput = -1
             try:
-                self.combatView.displayStart()
+                self.combat_view.display_start()
 
-                playerInput = int(input("Enter an action.\n"))
+                player_input = int(input("Enter an action.\n"))
                 print("\n")
 
-                self.clearScreen()
+                self.clear_screen()
 
                 if(playerInput == 0 ):
-                    self.combatView.displayEnd()
+                    self.combat_view.display_end()
                     break
 
                 elif(playerInput == 1):
-                    enemyController.enemy.health -= player.basicAttack()
+                    enemy_controller.enemy.health -= player.basic_attack()
 
                 elif(playerInput == 10):
-                    self.clearScreen()
+                    self.clear_screen()
 
             
 
@@ -57,7 +57,7 @@ class CombatController(Controller):
                 print("Error occurred.\n")
                 raise
 
-        self.combatView.win()
+        self.combat_view.win()
 
         return player
 

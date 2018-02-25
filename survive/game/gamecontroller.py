@@ -26,8 +26,8 @@ class GameController(Controller):
 
     def start(self, name):
         player = Player(name)
-        craftingController = CraftingController()
-        inventoryController = InventoryController()
+        crafting_controller = CraftingController()
+        inventory_controller = InventoryController()
         
         while True:
             playerInput = -1
@@ -59,14 +59,14 @@ class GameController(Controller):
                     player.check_inventory()
 
                 elif(playerInput == 3):
-                    inventoryController.start(player)
+                    inventory_controller.start(player)
 
                 elif(playerInput == 4):
                     player.cut_down_tree()
 
                 elif(playerInput == 5):
                     print("Entering Crafting Screen.\n")
-                    player = craftingController.start(player)
+                    player = crafting_controller.start(player)
 
                 elif(playerInput == 6):
                     print("Entering Hunting Screen.\n")
