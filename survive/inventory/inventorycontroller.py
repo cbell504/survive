@@ -1,25 +1,33 @@
 from survive.generic.controller import Controller
-from survive.inventory.inventoryview import InventoryView
+from survive.generic.view import View
 from survive.activities.crafting.craftingcontroller import CraftingController
 
 class InventoryController(Controller):
     
     def __init__(self):
-        self.inventory_view = InventoryView()
+        self.view = {
+            0: "Possible Actions:\n",
+            1: "(1)  Display Inventory",
+            2: "(2)  Eat Food",
+            3: "(3)  Craft", # Point to CraftController
+            4: "(9)  Use Boat", # End Game choice
+            5: "(10) Clear Screen",
+            6: "(0)  Back To Game\n"
+        }
 
     def start(self, player):
+        view = View(self.view)
+        crafting_controller = CraftingController()
+        player_input = -1
+
         while True:
-            player_input = -1
             try:
-                self.inventory_view.display_start()
-
+                view.start()
                 player_input = int(input("Enter an action.\n"))
-                print("\n")
-
                 super().clear_screen()
 
                 if(player_input == 0 ):
-                    self.inventory_view.display_end()
+                    view.end()
                     break
 
                 elif(player_input == 1):
@@ -28,8 +36,7 @@ class InventoryController(Controller):
                 elif(player_input == 2):
                     player.eat_food()
 
-                elif(player_input == 3):
-                    crafting_controller = CraftingController()
+                elif(player_input == 3):          
                     player = crafting_controller.start(player)
 
                 elif(player_input == 9):

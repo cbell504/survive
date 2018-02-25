@@ -23,9 +23,10 @@ class Player(object):
         self.inventory.display()
 
     def check_stats(self):
-        print("Player Stats")
+        print("Player Stats:")
         print("Current level: ", self.player_level)
         print("Current Health: ", self.player_health)
+        print("\n")
         #print("Strength: ", self.player_strength.attributeLevel, "\n")
 
     def cut_down_tree(self):
