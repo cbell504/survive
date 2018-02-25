@@ -3,9 +3,9 @@ from Entities.Game.GameController import GameController
 def main():
 	print("Welcome to Survithon.\n ")
 
-	playerInput = input("Please enter your name.\n")
+	player_input = input("Please enter your name.\n")
 
 	game = GameController()
-	game.start(playerInput)
+	game.start(player_input)
 
 if __name__ == "__main__": main()
