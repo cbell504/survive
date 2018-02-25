@@ -11,7 +11,6 @@ class Player(object):
         self._name = name
 
         # Advanced player attributes
-        # TODO: Woodworker is directly accessing these variables
         self._inventory = Inventory()
         self._level = Attribute(1, "Level")
         self._stamina = Attribute(10, "Stamina")
