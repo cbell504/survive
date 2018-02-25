@@ -2,7 +2,6 @@ from random import randint
 
 
 class Hunting(object):
-
     def __init__(self):
         self._percentage_to_catch = 2
 
