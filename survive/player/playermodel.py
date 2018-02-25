@@ -30,8 +30,8 @@ class Player(object):
         print("Strength: ", self.strength.get_level())
         print("\n")
 
-# TODO: Create a file to hold how much health should increase
-# based on what the player eats.
+    # TODO: Create a file to hold how much health should increase
+    # based on what the player eats.
     def eat_food(self):
         self._health += 5
         
