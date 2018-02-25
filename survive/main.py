@@ -1,11 +1,14 @@
 from game.gamecontroller import GameController
 
+
 def main():
-	print("Welcome to Survive.\n ")
+    print("Welcome to Survive.\n ")
 
-	player_input = input("Please enter your name.\n")
+    player_input = input("Please enter your name.\n")
 
-	game = GameController()
-	game.start(player_input)
+    game = GameController()
+    game.start(player_input)
 
-if __name__ == "__main__": main()
+
+if __name__ == "__main__":
+    main()

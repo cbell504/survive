@@ -4,62 +4,62 @@ from enemies.enemycontroller import EnemyController
 
 
 class CombatController(Controller):
-	
-	def __init__(self):
-		self.combatView = CombatView()
+    
+    def __init__(self):
+        self.combatView = CombatView()
 
-	def start(self, player):
+    def start(self, player):
 
-		# 
-		# Generate enemy here
-		# Create spawner class and spawner will talk to combat to say what the enemy is doing
-		# 
-		enemyController = EnemyController()
-		enemyController.generateEnemy()
-		self.combatView.enemyName = enemyController.enemy.name
+        # 
+        # Generate enemy here
+        # Create spawner class and spawner will talk to combat to say what the enemy is doing
+        # 
+        enemyController = EnemyController()
+        enemyController.generateEnemy()
+        self.combatView.enemyName = enemyController.enemy.name
 
-		self.combatView.enemyAppears()
+        self.combatView.enemyAppears()
 
-		#enemy = Hog
+        #enemy = Hog
 
-		while(enemyController.enemy.health >=0):
+        while(enemyController.enemy.health >=0):
 
-			self.combatView.enemyHealth = enemyController.enemy.health
-			self.combatView.playerHealth = player.playerHealth
+            self.combatView.enemyHealth = enemyController.enemy.health
+            self.combatView.playerHealth = player.playerHealth
 
-			playerInput = -1
-			try:
-				self.combatView.displayStart()
+            playerInput = -1
+            try:
+                self.combatView.displayStart()
 
-				playerInput = int(input("Enter an action.\n"))
-				print("\n")
+                playerInput = int(input("Enter an action.\n"))
+                print("\n")
 
-				self.clearScreen()
+                self.clearScreen()
 
-				if(playerInput == 0 ):
-					self.combatView.displayEnd()
-					break
+                if(playerInput == 0 ):
+                    self.combatView.displayEnd()
+                    break
 
-				elif(playerInput == 1):
-					enemyController.enemy.health -= player.basicAttack()
+                elif(playerInput == 1):
+                    enemyController.enemy.health -= player.basicAttack()
 
-				elif(playerInput == 10):
-					self.clearScreen()
+                elif(playerInput == 10):
+                    self.clearScreen()
 
-			
+            
 
-				else:
-					print("This is not a valid action\n")
+                else:
+                    print("This is not a valid action\n")
 
-			except ValueError:
-				print("Please enter a number.\n")
-			except:
-				print("Error occurred.\n")
-				raise
+            except ValueError:
+                print("Please enter a number.\n")
+            except:
+                print("Error occurred.\n")
+                raise
 
-		self.combatView.win()
+        self.combatView.win()
 
-		return player
+        return player
 
 
 
