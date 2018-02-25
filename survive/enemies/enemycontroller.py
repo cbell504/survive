@@ -1,5 +1,4 @@
 from survive.generic.controller import Controller
-from survive.activities.combat.combatview import CombatView
 
 from survive.enemies.enemymodel import Enemy
 from survive.enemies.hogmodel import Hog
