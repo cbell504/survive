@@ -1,16 +1,17 @@
 import platform
 import os
 
+
 class Controller(object):
     def __init__(self):
-        pass
+        self._system = ""
 
-    def clearScreen(self):
-        self.getPlatform()
-        if(self.system == "Windows"):
+    def clear_screen(self):
+        self.get_platform()
+        if(self._system == "Windows"):
             os.system('cls')
         else:
             os.system('clear')
 
-    def getPlatform(self):
-        self.system = platform.system()
+    def get_platform(self):
+        self._system = platform.system()

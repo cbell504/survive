@@ -1,69 +1,87 @@
 from survive.inventory.inventorymodel import Inventory
-from survive.activities.crafting.woodworking.woodworkingmodel import WoodWorking
-from survive.player.attributes.attributemodel import Attribute
+from survive.attributes.attributemodel import Attribute
+
+import sys
 
 
 class Player(object):
-    def __init__(self, player_name):
+    def __init__(self, name):
         # Basic player attributes
-        self.player_health = 10
-        self.player_level = 1
-        self.player_name = player_name
-        self.player_stamina = 10
+        self._health = 10
+        self._name = name
 
         # Advanced player attributes
-        self.player_strength = Attribute()
-        self.inventory = Inventory()
-        self.wood_working = WoodWorking()
+        # TODO: Woodworker is directly accessing these variables
+        self._inventory = Inventory()
+        self._level = Attribute(1, "Level")
+        self._stamina = Attribute(10, "Stamina")
+        self._strength = Attribute(2, "Strength")
+        self._wood_working = Attribute(1, "Woodworking")
 
-    def basic_attack(self):
-        return 2
+        # Attacks
+        self._basic_attack = 1
+        self._special_attack = 2
 
     def check_inventory(self):
-        self.inventory.display()
+        self._inventory.display()
 
     def check_stats(self):
-        print("Player Stats")
-        print("Current level: ", self.player_level)
-        print("Current Health: ", self.player_health)
-        print("Strength: ", self.player_strength.attributeLevel, "\n")
+        print("Player Stats:")
+        print("Current level: ", self._level.get_level())
+        print("Current Health: ", self._health)
+        print("Strength: ", self._strength.get_level())
+        print("\n")
 
-    def cut_down_tree(self):
-        if(self.inventory.isSlotsFull()):
-            print("Your inventory is full!\n")
-            print("You didn't pick up the wood.\n")
-        else:
-            # TODO Make wood working class give out wood
-            if(self.wood_working.isWoodGained()):
-                print("You got 1 piece of wood!\n")
-                self.inventory.addItem('Wood', 1)
-                self.player_strength.gainExp()
-
-            else:
-                print("You failed to cut the tree.\n")
-
-# TODO: Create a file to hold how much health should increase
-# based on what the player eats.
+    # TODO: Create a file to hold how much health should increase
+    # based on what the player eats.
     def eat_food(self):
-        self.player_health += 5
+        if(self.get_inventory().get_item('Food') > 0):
+            self._health += 5
+        else:
+            print("You don't have any food!\n")
+        
+    def get_basic_attack(self):
+        return self._basic_attack + self._strength.get_level()
 
-    def gain_experience_points(self, experience_gained):
-        self.player_exp_points = (self.player_exp_points + experience_gained)
+    def get_health(self):
+        return self._health
+
+    def get_inventory(self):
+        return self._inventory
+
+    def get_level(self):
+        return self._level
+
+    def get_name(self):
+        return self._name
+
+    def get_special_attack(self):
+        return self._special_attack + self._strength.get_level()
+
+    def get_stamina(self):
+        return self._stamina
+
+    def get_strength(self):
+        return self._strength
 
     def is_player_dead(self):
-        if(self.player_health <= 0):
+        if(self._health <= 0):
+            self.kill_player()
             return True
         else:
             return False
 
     def kill_player(self):
-        self.player_health = 0
-
-    def level_up(self, level_gained):
-        self.player_level = (self.player_level + level_gained)
+        self._health = 0
+        print("Game Over, you have died.")
+        sys.exit()
 
     def reduce_health(self, damage_taken):
-        self.player_health = (self.player_health - damage_taken)
+        self._health = (self._health - damage_taken)
 
     def restore_health(self, amount_restored):
-        self.player_health = (self.player_health + amount_restored)
+        self._health = (self._health + amount_restored)
+
+    def set_health(self, health):
+        self._health = health
+        self.is_player_dead()

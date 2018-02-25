@@ -3,74 +3,54 @@ from survive.activities.crafting.craftingcontroller import CraftingController
 from survive.inventory.inventorycontroller import InventoryController
 from survive.activities.hunting.huntingcontroller import HuntingController
 from survive.generic.controller import Controller
+from survive.generic.view import View
 
-
-import platform
-import os
-import time
 
 class GameController(Controller):
-
     def __init__(self):
-        self.system = ""
-
-    def clear_screen(self):
-        self.get_platform()
-        if(self.system == "Windows"):
-            os.system('cls')
-        else:
-            os.system('clear')
-
-    def get_platform(self):
-        self.system = platform.system()
+        self._view = {
+            0: "Possible Actions:\n",
+            1: "(1)  Check Stats",
+            2: "(2)  Open Inventory",
+            3: "(3)  Craft/Gather Items",
+            4: "(4)  Hunt",
+            10: "(10) Clear Screen",
+            11: "(0)  To Quit\n"
+        }
 
     def start(self, name):
+        view = View(self._view)
         player = Player(name)
-        craftingController = CraftingController()
-        inventoryController = InventoryController()
-        
+        crafting_controller = CraftingController()
+        inventory_controller = InventoryController()
+        huntingController = HuntingController()
+        player_input = -1
+
         while True:
-            playerInput = -1
             try:
-                print("Possible Actions:\n")
-                print("(1)  Check Stats")
-                print("(2)  Check Inventory")
-                print("(3)  Use Item")
-                print("(4)  Gather Wood")
-                print("(5)  Craft A New Item")
-                print("(6)  Go Hunting")
-                print("(10) Clear Screen")
-                print("(0)  To Quit\n")
+                view.start()
+                player_input = int(input("Enter an action.\n"))
+                super().clear_screen()
 
-                playerInput = int(input("Enter an action.\n"))
-                print("\n")
-                self.clear_screen()
-
-                if(playerInput == 0 ):
-                    print("You have quit.\n")
+                if(player_input == 0):
+                    print("Game Over\n")
                     break
-                elif(playerInput == 10):
-                    self.clear_screen()
 
-                elif(playerInput == 1):
+                elif(player_input == 10):
+                    super().clear_screen()
+
+                elif(player_input == 1):
                     player.check_stats()
 
-                elif(playerInput == 2):
-                    player.check_inventory()
+                elif(player_input == 2):
+                    inventory_controller.start(player)
 
-                elif(playerInput == 3):
-                    inventoryController.start(player)
-
-                elif(playerInput == 4):
-                    player.cut_down_tree()
-
-                elif(playerInput == 5):
+                elif(player_input == 3):
                     print("Entering Crafting Screen.\n")
-                    player = craftingController.start(player)
+                    player = crafting_controller.start(player)
 
-                elif(playerInput == 6):
+                elif(player_input == 4):
                     print("Entering Hunting Screen.\n")
-                    huntingController = HuntingController()
                     player = huntingController.start(player)
 
                 else:
@@ -78,9 +58,7 @@ class GameController(Controller):
 
             except ValueError:
                 print("Please enter a number.\n")
+
             except:
                 print("Error occurred.\n")
                 raise
-
-
-            

@@ -1,53 +1,54 @@
 from survive.generic.controller import Controller
-from survive.inventory.inventoryview import InventoryView
+from survive.generic.view import View
 from survive.activities.crafting.craftingcontroller import CraftingController
 
+
 class InventoryController(Controller):
-    
     def __init__(self):
-        self.inventoryView = InventoryView()
+        self._view = {
+            0: "Possible Actions:\n",
+            1: "(1)  Display Inventory",
+            2: "(2)  Eat Food",
+            3: "(3)  Craft",  # Point to CraftController # End Game choice
+            5: "(10) Clear Screen",
+            6: "(0)  Back To Game\n"
+        }
 
-    def startController(self, player):
+    def start(self, player):
+        view = View(self._view)
+        crafting_controller = CraftingController()
+        player_input = -1
+
         while True:
-            playerInput = -1
             try:
-                self.inventoryView.displayStart()
+                view.start()
+                player_input = int(input("Enter an action.\n"))
+                super().clear_screen()
 
-                playerInput = int(input("Enter an action.\n"))
-                print("\n")
-
-                self.clearScreen()
-
-                if(playerInput == 0 ):
-                    self.inventoryView.displayEnd()
+                if(player_input == 0):
+                    view.end()
                     break
 
-                elif(playerInput == 1):
-                    player.inventory.display()
+                elif(player_input == 1):
+                    player.get_inventory().display()
 
-                elif(playerInput == 2):
-                    player.eatFood()
+                elif(player_input == 2):
+                    player.eat_food()
 
-                elif(playerInput == 3):
-                    craftingController = CraftingController()
-                    player = craftingController.start(player)
+                elif(player_input == 3):
+                    player = crafting_controller.start(player)
 
-                elif(playerInput == 9):
-                    pass
-
-                elif(playerInput == 10):
-                    self.clearScreen()
+                elif(player_input == 10):
+                    super().clear_screen()
 
                 else:
                     print("This is not a valid action\n")
 
             except ValueError:
                 print("Please enter a number.\n")
+
             except:
                 print("Error occurred.\n")
                 raise
 
         return player
-
-
-

@@ -1,49 +1,52 @@
 from survive.generic.controller import Controller
+from survive.generic.view import View
 from survive.activities.crafting.woodworking.woodworkingmodel import WoodWorking
+
 
 class WoodWorkingController(Controller):
     def __init__(self):
-        self.itemBuilt = 0
+        self._view = {
+            0: "Possible Actions:\n",
+            1: "(1)  Cut Wood",
+            2: "(2)  Build A Shelter",
+            3: "(3)  Build A Boat",
+            4: "(10) Clear Screen",
+            5: "(0)  Back To Crafting\n"
+        }
 
     def start(self, player):
-        totalWood = player.inventory.slots['Wood']
+        view = View(self._view)
+        woodworker = WoodWorking()
+        playerInput = -1
 
         while True:
-            playerInput = -1
             try:
-                print("Possible Actions:\n")
-                print("(1)  Build A Shelter")
-                print("(2)  Build A Boat")
-                print("(10) Clear Screen")
-                print("(0)  Back To Crafting\n")
-
-
+                view.start()
                 playerInput = int(input("Enter an action.\n"))
-                print("\n")
-                self.clearScreen()
+                super().clear_screen()
 
-                if(playerInput == 0 ):
-                    print("Moving back to game.\n")
+                if(playerInput == 0):
+                    view.end()
                     break
+
                 elif(playerInput == 10):
-                    self.clearScreen()
+                    super().clear_screen()
 
                 elif(playerInput == 1):
-                    woodworker = WoodWorking()
-
-                    player = woodworker.buildShelter(totalWood, player)
+                    player = woodworker.cut_wood(player)
 
                 elif(playerInput == 2):
-                    woodworker = WoodWorking()
+                    player = woodworker.build_shelter(player)
 
-                    player = woodworker.buildBoat(totalWood, player)
-
+                elif(playerInput == 3):
+                    player = woodworker.build_boat(player)
 
                 else:
                     print("This is not a valid action\n")
 
             except ValueError:
                 print("Please enter a number.\n")
+
             except:
                 print("Error occurred.\n")
                 raise

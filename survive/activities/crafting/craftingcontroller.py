@@ -1,44 +1,46 @@
 from survive.activities.crafting.woodworking.woodworkingcontroller import WoodWorkingController
 from survive.generic.controller import Controller
+from survive.generic.view import View
+
 
 class CraftingController(Controller):
-    
     def __init__(self):
-        #self.crafter = Crafting()
-        pass
+        self._view = {
+            0: "Possible Actions:\n",
+            1: "(1)  Wood Working",
+            2: "(10) Clear Screen",
+            3: "(0)  Back To Game\n"
+        }
 
     def start(self, player):
+        view = View(self._view)
+        woodworking_controller = WoodWorkingController()
+
         while True:
             playerInput = -1
             try:
-                print("Possible Actions:\n")
-                print("(1)  Wood Working")
-                print("(10) Clear Screen")
-                print("(0)  Back To Game\n")
-
+                view.start()
                 playerInput = int(input("Enter an action.\n"))
-                print("\n")
-                self.clearScreen()
+                super().clear_screen()
 
-                if(playerInput == 0 ):
-                    print("Moving back to game.\n")
+                if(playerInput == 0):
+                    view.end()
                     break
-                elif(playerInput == 10):
-                    self.clearScreen()
 
-                    player.inventory.display()
+                elif(playerInput == 10):
+                    super().clear_screen()
 
                 elif(playerInput == 1):
-                    woodworkingController = WoodWorkingController()
-                    player = woodworkingController.start(player)
+                    player = woodworking_controller.start(player)
 
                 else:
                     print("This is not a valid action\n")
 
             except ValueError:
                 print("Please enter a number.\n")
+
             except:
                 print("Error occurred.\n")
                 raise
-                
+
         return player
