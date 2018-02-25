@@ -8,7 +8,7 @@ from survive.generic.view import View
 
 class GameController(Controller):
     def __init__(self):
-        self.view = {
+        self._view = {
             0: "Possible Actions:\n",
             1: "(1)  Check Stats",
             2: "(2)  Open Inventory",
@@ -19,7 +19,7 @@ class GameController(Controller):
         }
 
     def start(self, name):
-        view = View(self.view)
+        view = View(self._view)
         player = Player(name)
         crafting_controller = CraftingController()
         inventory_controller = InventoryController()
@@ -58,7 +58,7 @@ class GameController(Controller):
 
             except ValueError:
                 print("Please enter a number.\n")
-                
+
             except:
                 print("Error occurred.\n")
                 raise
