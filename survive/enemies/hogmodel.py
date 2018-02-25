@@ -1,4 +1,4 @@
-from Entities.Enemies.EnemyModel import Enemy
+from enemies.enemymodel import Enemy
 
 class Hog(Enemy):
 	

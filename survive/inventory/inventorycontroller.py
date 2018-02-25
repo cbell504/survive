@@ -1,6 +1,6 @@
-from Entities.Generic.Controller import Controller
-from Entities.Inventory.InventoryView import InventoryView
-from Entities.Activities.Crafting.CraftingController import CraftingController
+from generic.controller import Controller
+from inventory.inventoryview import InventoryView
+from activities.crafting.craftingcontroller import CraftingController
 
 class InventoryController(Controller):
 	

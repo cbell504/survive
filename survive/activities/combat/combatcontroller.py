@@ -1,6 +1,6 @@
-from Entities.Generic.Controller import Controller
-from Entities.Activities.Combat.CombatView import CombatView
-from Entities.Enemies.EnemyController import EnemyController
+from generic.controller import Controller
+from activities.combat.combatview import CombatView
+from enemies.enemycontroller import EnemyController
 
 
 class CombatController(Controller):

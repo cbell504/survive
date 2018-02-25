@@ -1,7 +1,7 @@
-from Entities.Game.GameController import GameController
+from game.gamecontroller import GameController
 
 def main():
-	print("Welcome to Survithon.\n ")
+	print("Welcome to Survive.\n ")
 
 	player_input = input("Please enter your name.\n")
 

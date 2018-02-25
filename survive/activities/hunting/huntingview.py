@@ -1,4 +1,4 @@
-from Entities.Generic.View import View
+from generic.view import View
 
 class HuntingView(View):
 	def __init__(self):

@@ -1,8 +1,8 @@
-from Entities.Player.PlayerModel import Player
-from Entities.Activities.Crafting.CraftingController import CraftingController
-from Entities.Inventory.InventoryController import InventoryController
-from Entities.Activities.Hunting.HuntingController import HuntingController
-from Entities.Generic.Controller import Controller
+from player.playermodel import Player
+from activities.crafting.craftingcontroller import CraftingController
+from inventory.inventorycontroller import InventoryController
+from activities.hunting.huntingcontroller import HuntingController
+from generic.controller import Controller
 
 
 import platform

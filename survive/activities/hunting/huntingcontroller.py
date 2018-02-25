@@ -1,7 +1,7 @@
-from Entities.Generic.Controller import Controller
-from Entities.Activities.Hunting.HuntingView import HuntingView
-from Entities.Activities.Hunting.HuntingModel import Hunting
-from Entities.Activities.Combat.CombatController import CombatController
+from generic.controller import Controller
+from activities.hunting.huntingview import HuntingView
+from activities.hunting.huntingmodel import Hunting
+from activities.combat.combatcontroller import CombatController
 
 class HuntingController(Controller):
 	

@@ -1,5 +1,5 @@
-from Entities.Activities.Crafting.WoodWorking.WoodWorkingController import WoodWorkingController
-from Entities.Generic.Controller import Controller
+from activities.crafting.woodworking.woodworkingcontroller import WoodWorkingController
+from generic.controller import Controller
 
 class CraftingController(Controller):
 	
