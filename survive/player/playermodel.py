@@ -5,10 +5,11 @@ from survive.player.attributes.attributemodel import Attribute
 class Player(object):
     def __init__(self, name):
         # Basic player attributes
-        self.health = 10
-        self.name = name
+        self._health = 10
+        self._name = name
 
         # Advanced player attributes
+        # TODO: Woodworker is directly accessing these variables
         self.inventory = Inventory()
         self.level = Attribute(1, "Level")
         self.stamina = Attribute(10, "Stamina")
@@ -16,8 +17,8 @@ class Player(object):
         self.wood_working = Attribute(1, "Woodworking")
 
         # Attacks
-        self.basic_attack = 1
-        self.special_attack = 2
+        self._basic_attack = 1
+        self._special_attack = 2
 
     def check_inventory(self):
         self.inventory.display()
@@ -25,32 +26,38 @@ class Player(object):
     def check_stats(self):
         print("Player Stats:")
         print("Current level: ", self.level.get_level())
-        print("Current Health: ", self.health)
+        print("Current Health: ", self._health)
         print("Strength: ", self.strength.get_level())
         print("\n")
 
 # TODO: Create a file to hold how much health should increase
 # based on what the player eats.
     def eat_food(self):
-        self.health += 5
+        self._health += 5
+        
+    def get_basic_attack(self):
+        return self._basic_attack + self.strength.get_level()
+
+    def get_health(self):
+        return self._health
+
+    def get_name(self):
+        return self._name
+
+    def get_special_attack(self):
+        return self._special_attack + self.strength.get_level()
 
     def is_player_dead(self):
-        if(self.health <= 0):
+        if(self._health <= 0):
             return True
         else:
             return False
 
     def kill_player(self):
-        self.health = 0
+        self._health = 0
 
     def reduce_health(self, damage_taken):
-        self.health = (self.health - damage_taken)
+        self._health = (self._health - damage_taken)
 
     def restore_health(self, amount_restored):
-        self.health = (self.health + amount_restored)
-
-    def get_basic_attack(self):
-        return self.basic_attack + self.strength.get_level()
-
-    def get_special_attack(self):
-        return self.special_attack + self.strength.get_level()
+        self._health = (self._health + amount_restored)
