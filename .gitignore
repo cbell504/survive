@@ -1,4 +1,9 @@
+# Python Ignores
 *.pyc
 **/__pycache__
 
+# MacOs Ignores
 **/.DS_Store
+
+# VS Code Ignores
+.vscode
