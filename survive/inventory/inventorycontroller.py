@@ -7,7 +7,7 @@ class InventoryController(Controller):
 	def __init__(self):
 		self.inventoryView = InventoryView()
 
-	def start(self, player):
+	def startController(self, player):
 		while True:
 			playerInput = -1
 			try:
