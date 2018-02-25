@@ -1,65 +1,60 @@
 from survive.generic.model import Model
+from survive.player.attributes.attributemodel import Attribute
 
 # TODO: Raise error when values are set below zero
 
 
 class Enemy(Model):
     def __init__(self):
-        # Health
-        self.health = 10
         self.DEFAULT_HEALTH = 10
-
-        # Name
-        self.name = "Enemy"
         self.DEFAULT_NAME = "Enemy"
-
-        # Attack Power
-        self.basic_attack = 1
         self.DEFAULT_BASIC_ATTACK = 1
-        self.special_attack = 3
         self.DEFAULT_SPECIAL_ATTACK = 3
-
-        self.level = 1
         self.DEFAULT_LEVEL = 1
 
+        self._health = 10
+        self._name = ""
+        self._basic_attack = 1
+        self._special_attack = 3
+        self._level = Attribute(1, "Level")
+        
+
     def is_enemy_alive(self):
-        if(self.health > 1):
+        if(self._health > 1):
             return True
         else:
             return False
 
-    # Getters and Setters
-
     def get_basic_attack(self):
-        if(self.basic_attack):
-            return self.basic_attack
+        if(self._basic_attack):
+            return self._basic_attack
         else:
             return self.DEFAULT_BASIC_ATTACK
 
     def get_health(self):
-        return self.health
+        return self._health
 
     def get_level(self):
-        if(self.level):
-            return self.level
+        if(self._level):
+            return self._level
         else:
             return self.DEFAULT_LEVEL
 
     def get_name(self):
-        if(self.name):
-            return self.name
+        if(self._name):
+            return self._name
         else:
             return self.DEFAULT_NAME
 
     def get_special_attack(self):
-        if(self.special_attack):
-            return self.special_attack
+        if(self._special_attack):
+            return self._special_attack
         else:
             return self.DEFAULT_SPECIAL_ATTACK
 
     def set_basic_attack(self, basic_attack):
         if(basic_attack >= 0):
-            self.basic_attack = basic_attack
+            self._basic_attack = basic_attack
         else:
             try:
                 raise Exception(
@@ -68,11 +63,11 @@ class Enemy(Model):
                 print("Error Caught: " + repr(error))
 
     def set_health(self, health):
-        self.health = health
+        self._health = health
 
     def set_level(self, level):
         if(level >= 1):
-            self.level = level
+            self._level = level
         else:
             try:
                 raise Exception(
@@ -81,11 +76,11 @@ class Enemy(Model):
                 print("Error Caught: " + repr(error))
 
     def set_name(self, name):
-        self.name = name
+        self._name = name
 
     def set_special_attack(self, special_attack):
         if(special_attack >= 0):
-            self.special_attack = special_attack
+            self._special_attack = special_attack
         else:
             try:
                 raise Exception(

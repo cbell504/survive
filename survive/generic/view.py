@@ -12,3 +12,6 @@ class View(object):
 
     def request_action(self):
         print("Enter an action.\n")
+
+    def victory(self, enemy):
+        print("You have defeated " + enemy.get_name())

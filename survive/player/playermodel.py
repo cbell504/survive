@@ -1,6 +1,8 @@
 from survive.inventory.inventorymodel import Inventory
 from survive.player.attributes.attributemodel import Attribute
 
+import sys
+
 
 class Player(object):
     def __init__(self, name):
@@ -49,15 +51,22 @@ class Player(object):
 
     def is_player_dead(self):
         if(self._health <= 0):
+            self.kill_player()
             return True
         else:
             return False
 
     def kill_player(self):
         self._health = 0
+        print("Game Over, you have died.")
+        sys.exit()
 
     def reduce_health(self, damage_taken):
         self._health = (self._health - damage_taken)
 
     def restore_health(self, amount_restored):
         self._health = (self._health + amount_restored)
+
+    def set_health(self, health):
+        self._health = health
+        self.is_player_dead()

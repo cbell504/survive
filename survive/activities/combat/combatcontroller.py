@@ -1,34 +1,30 @@
 from survive.generic.controller import Controller
+from survive.generic.view import View
 from survive.activities.combat.combatview import CombatView
 from survive.enemies.enemycontroller import EnemyController
 
 
 class CombatController(Controller):
     def __init__(self):
+        self._view = {
+            0: "Enemy Appears!"
+        }
         self.combat_view = CombatView()
 
     def start(self, player):
-
-        #
-        # Generate enemy here
-        # Create spawner class and spawner will talk to combat to say what the enemy is doing
-        #
         enemy_controller = EnemyController()
-        enemy_controller.generate_enemy()
-        self.combat_view.enemy_name = enemy_controller.enemy.name
+        enemy = enemy_controller.generate_enemy()
 
+        self.combat_view.enemy_name = enemy.get_name()
         self.combat_view.enemy_appears()
 
-        #enemy = Hog
+        player_input = -1
 
-        while(enemy_controller.enemy.health >= 0):
-
-            self.combat_view.enemy_health = enemy_controller.enemy.health
-            self.combat_view.player_health = player.player_health
-
-            player_input = -1
+        while(enemy.get_health() >= 0):
             try:
-                self.combat_view.display_start()
+                self.update_view(enemy, player)
+                view = View(self._view)
+                view.start()
 
                 player_input = int(input("Enter an action.\n"))
                 print("\n")
@@ -36,24 +32,40 @@ class CombatController(Controller):
                 super().clear_screen()
 
                 if(player_input == 0):
-                    self.combat_view.display_end()
+                    view.end()
                     break
 
                 elif(player_input == 1):
-                    enemy_controller.enemy.health -= player.basic_attack()
+                    enemy.set_health(enemy.get_health() - player.get_basic_attack())
+                    player.set_health(player.get_health() - enemy.get_basic_attack())
 
                 elif(player_input == 10):
-                    self.clear_screen()
+                    super().clear_screen()
 
                 else:
                     print("This is not a valid action\n")
 
             except ValueError:
                 print("Please enter a number.\n")
+
             except:
                 print("Error occurred.\n")
                 raise
 
-        self.combat_view.win()
+        view.victory(enemy)
 
         return player
+
+    def update_view(self, enemy, player):
+        self._view = {
+            0: enemy.get_name(),
+            1: "Health: " + str(enemy.get_health()) + "\n",
+            2: player.get_name(),
+            3: "Health: " + str(player.get_health()) + "\n",
+            4: "Possible Actions:\n",
+            5: "(1)  Attack",
+            6: "(2)  Defend",
+            7: "(3)  Run",
+            8: "(10) Clear Screen",
+            9: "(0)  Back To Game\n"
+        }
