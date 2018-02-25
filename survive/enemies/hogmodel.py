@@ -10,11 +10,6 @@ class Hog(Enemy):
         self._attacks = {"Bite": 1}
         self._special_attacks = {"Ram": 2}
 
-    def attack(self):
-        pass
-        # print("Uses")
-        # return self.hog.attacks
-
     def get_basic_attack(self):
         return self._attacks["Bite"]
 

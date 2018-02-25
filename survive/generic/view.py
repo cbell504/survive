@@ -1,12 +1,12 @@
 class View(object):
     def __init__(self, view):
-        self.view = view
+        self._view = view
 
     def update(self, view):
-        self.view = view
+        self._view = view
 
     def start(self):
-        for key, value in self.view.items():
+        for key, value in self._view.items():
             print(value)
         print("\n")
 

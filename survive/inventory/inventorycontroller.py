@@ -5,7 +5,7 @@ from survive.activities.crafting.craftingcontroller import CraftingController
 
 class InventoryController(Controller):
     def __init__(self):
-        self.view = {
+        self._view = {
             0: "Possible Actions:\n",
             1: "(1)  Display Inventory",
             2: "(2)  Eat Food",
@@ -15,7 +15,7 @@ class InventoryController(Controller):
         }
 
     def start(self, player):
-        view = View(self.view)
+        view = View(self._view)
         crafting_controller = CraftingController()
         player_input = -1
 

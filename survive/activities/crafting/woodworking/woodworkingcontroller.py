@@ -5,8 +5,7 @@ from survive.activities.crafting.woodworking.woodworkingmodel import WoodWorking
 
 class WoodWorkingController(Controller):
     def __init__(self):
-        self.itemBuilt = 0
-        self.view = {
+        self._view = {
             0: "Possible Actions:\n",
             1: "(1)  Cut Wood",
             2: "(2)  Build A Shelter",
@@ -16,7 +15,7 @@ class WoodWorkingController(Controller):
         }
 
     def start(self, player):
-        view = View(self.view)
+        view = View(self._view)
         woodworker = WoodWorking()
         playerInput = -1
 

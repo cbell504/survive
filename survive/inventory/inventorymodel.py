@@ -5,7 +5,8 @@ class Inventory(object):
             "Wood": 0,
             "Shelter": 0,
             "Boat": 0,
-            "Food": 0}
+            "Food": 0
+        }
 
     def add_item(self, item, total_items):
         self._slots.update({item: self._slots.get(item) + total_items})

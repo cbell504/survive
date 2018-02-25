@@ -5,7 +5,7 @@ from survive.generic.view import View
 
 class CraftingController(Controller):
     def __init__(self):
-        self.view = {
+        self._view = {
             0: "Possible Actions:\n",
             1: "(1)  Wood Working",
             2: "(10) Clear Screen",
@@ -13,7 +13,7 @@ class CraftingController(Controller):
         }
 
     def start(self, player):
-        view = View(self.view)
+        view = View(self._view)
         woodworking_controller = WoodWorkingController()
 
         while True:

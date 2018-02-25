@@ -58,6 +58,7 @@ class GameController(Controller):
 
             except ValueError:
                 print("Please enter a number.\n")
+                
             except:
                 print("Error occurred.\n")
                 raise

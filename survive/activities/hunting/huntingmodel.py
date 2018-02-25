@@ -4,7 +4,7 @@ from random import randint
 class Hunting(object):
 
     def __init__(self):
-        percentage_to_catch = 2
+        self._percentage_to_catch = 2
 
     def chance_to_find_animal(self):
         ranNum = randint(1, 10)
