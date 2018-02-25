@@ -30,7 +30,7 @@ class InventoryController(Controller):
                     break
 
                 elif(player_input == 1):
-                    player.inventory.display()
+                    player.get_inventory().display()
 
                 elif(player_input == 2):
                     player.eat_food()

@@ -1,5 +1,5 @@
 from survive.generic.model import Model
-from survive.player.attributes.attributemodel import Attribute
+from survive.attributes.attributemodel import Attribute
 
 # TODO: Raise error when values are set below zero
 

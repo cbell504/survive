@@ -2,9 +2,10 @@ class Inventory(object):
     def __init__(self):
         self._slots_max_size = 10
         self._slots = {
-            'Wood': 0,
-            'Shelter': 0,
-            'Boat': 0}
+            "Wood": 0,
+            "Shelter": 0,
+            "Boat": 0,
+            "Food": 0}
 
     def add_item(self, item, total_items):
         self._slots.update({item: self._slots.get(item) + total_items})

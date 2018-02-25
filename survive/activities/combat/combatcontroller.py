@@ -10,14 +10,14 @@ class CombatController(Controller):
         }
 
     def start(self, player):
+        view = View(self._view)
         enemy_controller = EnemyController()
         enemy = enemy_controller.generate_enemy()
         player_input = -1
 
         while(enemy.get_health() >= 0):
             try:
-                self.update_view(enemy, player)
-                view = View(self._view)
+                self.update_view(enemy, player, view)
                 view.start()
 
                 player_input = int(input("Enter an action.\n"))
@@ -50,7 +50,7 @@ class CombatController(Controller):
 
         return player
 
-    def update_view(self, enemy, player):
+    def update_view(self, enemy, player, view):
         self._view = {
             0: enemy.get_name(),
             1: "Health: " + str(enemy.get_health()) + "\n",
@@ -63,3 +63,4 @@ class CombatController(Controller):
             8: "(10) Clear Screen",
             9: "(0)  Back To Game\n"
         }
+        view.update(self._view)
