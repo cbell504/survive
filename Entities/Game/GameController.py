@@ -14,14 +14,14 @@ class GameController(Controller):
 	def __init__(self):
 		self.system = ""
 
-	def clearScreen(self):
-		self.getPlatform()
+	def clear_screen(self):
+		self.get_platform()
 		if(self.system == "Windows"):
 			os.system('cls')
 		else:
 			os.system('clear')
 
-	def getPlatform(self):
+	def get_platform(self):
 		self.system = platform.system()
 
 	def start(self, name):
@@ -44,25 +44,25 @@ class GameController(Controller):
 
 				playerInput = int(input("Enter an action.\n"))
 				print("\n")
-				self.clearScreen()
+				self.clear_screen()
 
 				if(playerInput == 0 ):
 					print("You have quited.\n")
 					break
 				elif(playerInput == 10):
-					self.clearScreen()
+					self.clear_screen()
 
 				elif(playerInput == 1):
-					player.checkStats()
+					player.check_stats()
 
 				elif(playerInput == 2):
-					player.checkInventory();
+					player.check_inventory()
 
 				elif(playerInput == 3):
 					inventoryController.start(player)
 
 				elif(playerInput == 4):
-					player.cutDownTree()
+					player.cut_down_tree()
 
 				elif(playerInput == 5):
 					print("Entering Crafting Screen.\n")

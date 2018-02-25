@@ -3,64 +3,67 @@ from Entities.Activities.Crafting.WoodWorking.WoodWorkingModel import WoodWorkin
 from Entities.Player.Attributes.AttributeModel import Attribute
 
 class Player(object):
-	def __init__(self, playerName):
-		self.playerHealth = 10
-		self.playerLevel = 1
-		self.playerName = playerName
-		self.playerStamina = 10
-		self.playerStrength = Attribute()
+	def __init__(self, player_name):
+		# Basic player attributes
+		self.player_health = 10
+		self.player_level = 1
+		self.player_name = player_name
+		self.player_stamina = 10
+
+		# Advanced player attributes
+		self.player_strength = Attribute()
 		self.inventory = Inventory()
-		self.woodWorkingSkill = WoodWorking()
+		self.wood_working = WoodWorking()
 
 
-	def basicAttack(self):
+	def basic_attack(self):
 		return 2
 
-	def checkInventory(self):
+	def check_inventory(self):
 		self.inventory.display()
 
-	def checkStats(self):
+	def check_stats(self):
 		print("Player Stats")
-		print("Current level: ", self.playerLevel)
-		print("Current Health: ", self.playerHealth)
-		print("Strength: ", self.playerStrength.attributeLevel, "\n")
+		print("Current level: ", self.player_level)
+		print("Current Health: ", self.player_health)
+		print("Strength: ", self.player_strength.attributeLevel, "\n")
 
-	def cutDownTree(self):
+	def cut_down_tree(self):
 		if(self.inventory.isSlotsFull()):
 			print("Your inventory is full!\n")
 			print("You didn't pick up the wood.\n")
 		else:
 			#TODO Make wood working class give out wood
-			if(self.woodWorkingSkill.isWoodGained()):
+			if(self.wood_working.isWoodGained()):
 				print("You got 1 piece of wood!\n")
 				self.inventory.addItem('Wood', 1)
-				self.playerStrength.gainExp()
+				self.player_strength.gainExp()
 
 			else:
 				print("You failed to cut the tree.\n")
 
 #TODO: Create a file to hold how much health should increase
 # based on what the player eats.
-	def eatFood(self):
-		self.playerHealth += 5
+	def eat_food(self):
+		self.player_health += 5
 
-	def gainExperiencePoints(self, experienceGained):
-		self.playerExpPoints = (self.playerExpPoints + experienceGained)
+	def gain_experience_points(self, experience_gained):
+		self.player_exp_points = (self.player_exp_points + experience_gained)
 
-	def isPlayerDead(self):
-		if(self.playerHealth <= 0):
-			return true
+	def is_player_dead(self):
+		if(self.player_health <= 0):
+			return True
 		else:
-			return false
+			return False
 
-	def killPlayer(self):
-		self.playerHealth = 0
+	def kill_player(self):
+		self.player_health = 0
 
-	def levelUp(self, levelGained):
-		self.playerLevel = (self.playerLevel + levelGained)
+	def level_up(self, level_gained):
+		self.player_level = (self.playerLevel + level_gained)
 
-	def reduceHealth(self, damageTaken):
-		self.playerHealth = (self.playerHealth - damageTaken)
+	def reduce_health(self, damage_taken):
+		self.player_health = (self.player_health - damage_taken)
 
-	def restoreHealth(self, amountRestored):
-		self.playerHealth = (self.playerHealth + amountRestored)
+	def restore_health(self, amount_restored):
+		self.player_health = (self.player_health + amount_restored)
