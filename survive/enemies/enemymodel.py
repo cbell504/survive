@@ -2,7 +2,7 @@ from survive.generic.model import Model
 
 # TODO: Raise error when values are set below zero
 
-class EnemyModel(Model):
+class Enemy(Model):
     
     def __init__(self):
         # Health 

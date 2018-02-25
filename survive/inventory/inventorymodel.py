@@ -1,4 +1,4 @@
-class InventoryModel(object):
+class Inventory(object):
 
     def __init__(self):
         self.slots = {'Wood': 0, 'Shelter': 0, 'Boat': 0}
