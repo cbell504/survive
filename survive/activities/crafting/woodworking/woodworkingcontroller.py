@@ -1,5 +1,5 @@
-from generic.controller import Controller
-from activities.crafting.woodworking.woodworkingmodel import WoodWorking
+from survive.generic.controller import Controller
+from survive.activities.crafting.woodworking.woodworkingmodel import WoodWorking
 
 class WoodWorkingController(Controller):
     def __init__(self):

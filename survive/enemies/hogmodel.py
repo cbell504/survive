@@ -1,4 +1,4 @@
-from enemies.enemymodel import Enemy
+from survive.enemies.enemymodel import Enemy
 
 class Hog(Enemy):
     

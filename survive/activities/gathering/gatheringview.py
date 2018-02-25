@@ -1,4 +1,4 @@
-from Entities.Generic.View import View
+from survive.generic.view import View
 
 class GatheringView(View):
     

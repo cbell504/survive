@@ -1,7 +1,7 @@
-from generic.controller import Controller
-from activities.hunting.huntingview import HuntingView
-from activities.hunting.huntingmodel import Hunting
-from activities.combat.combatcontroller import CombatController
+from survive.generic.controller import Controller
+from survive.activities.hunting.huntingview import HuntingView
+from survive.activities.hunting.huntingmodel import Hunting
+from survive.activities.combat.combatcontroller import CombatController
 
 class HuntingController(Controller):
     

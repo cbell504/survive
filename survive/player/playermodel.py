@@ -1,6 +1,6 @@
-from inventory.inventorymodel import Inventory
-from activities.crafting.woodworking.woodworkingmodel import WoodWorking
-from player.attributes.attributemodel import Attribute
+from survive.inventory.inventorymodel import Inventory
+from survive.activities.crafting.woodworking.woodworkingmodel import WoodWorking
+from survive.player.attributes.attributemodel import Attribute
 
 
 class Player(object):

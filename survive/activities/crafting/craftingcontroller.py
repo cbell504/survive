@@ -1,5 +1,5 @@
-from activities.crafting.woodworking.woodworkingcontroller import WoodWorkingController
-from generic.controller import Controller
+from survive.activities.crafting.woodworking.woodworkingcontroller import WoodWorkingController
+from survive.generic.controller import Controller
 
 class CraftingController(Controller):
     

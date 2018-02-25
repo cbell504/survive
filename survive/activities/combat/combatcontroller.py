@@ -1,6 +1,6 @@
-from generic.controller import Controller
-from activities.combat.combatview import CombatView
-from enemies.enemycontroller import EnemyController
+from survive.generic.controller import Controller
+from survive.activities.combat.combatview import CombatView
+from survive.enemies.enemycontroller import EnemyController
 
 
 class CombatController(Controller):

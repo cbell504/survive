@@ -1,3 +1,3 @@
-from generic.model import Model
+from survive.generic.model import Model
 class Activity(Model):
     pass

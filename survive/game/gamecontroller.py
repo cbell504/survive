@@ -1,8 +1,8 @@
-from player.playermodel import Player
-from activities.crafting.craftingcontroller import CraftingController
-from inventory.inventorycontroller import InventoryController
-from activities.hunting.huntingcontroller import HuntingController
-from generic.controller import Controller
+from survive.player.playermodel import Player
+from survive.activities.crafting.craftingcontroller import CraftingController
+from survive.inventory.inventorycontroller import InventoryController
+from survive.activities.hunting.huntingcontroller import HuntingController
+from survive.generic.controller import Controller
 
 
 import platform

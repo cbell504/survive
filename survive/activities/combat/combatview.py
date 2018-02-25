@@ -1,4 +1,4 @@
-from generic.view import View
+from survive.generic.view import View
 
 class CombatView(View):
     def __init__(self):

@@ -1,6 +1,6 @@
-from generic.controller import Controller
-from inventory.inventoryview import InventoryView
-from activities.crafting.craftingcontroller import CraftingController
+from survive.generic.controller import Controller
+from survive.inventory.inventoryview import InventoryView
+from survive.activities.crafting.craftingcontroller import CraftingController
 
 class InventoryController(Controller):
     

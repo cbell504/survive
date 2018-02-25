@@ -1,4 +1,4 @@
-from Generic.Model import Model
+from survive.generic.model import Model
 
 # TODO: Raise error when values are set below zero
 
