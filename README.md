@@ -1,11 +1,11 @@
-# survive
+# Survive
 
-survive is a text based adventure game
+Survive is a text based adventure game
 
 ## Running
 
-You can running survive by running it using python3
+You can running Survive by running it using python3
 
 ## Development
 
-Anyone can contribute to survive by forking and submitting a pull request!
+Anyone can contribute to Survive by forking and submitting a pull request!
