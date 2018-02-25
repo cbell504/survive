@@ -8,15 +8,10 @@ class CombatController(Controller):
         self._view = {
             0: "Enemy Appears!"
         }
-        self.combat_view = CombatView()
 
     def start(self, player):
         enemy_controller = EnemyController()
         enemy = enemy_controller.generate_enemy()
-
-        self.combat_view.enemy_name = enemy.get_name()
-        self.combat_view.enemy_appears()
-
         player_input = -1
 
         while(enemy.get_health() >= 0):
