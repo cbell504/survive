@@ -1,32 +1,9 @@
-./Entities/__pycache__
-./Entities/*.pyc
-
-./Entities/Activities/__pycache__
-./Entities/Activities/*.pyc
-
-./Entities/Activities/Crafting/__pycache__
-./Entities/Activities/Crafting/*.pyc
-
-./Entities/Enemies/__pycache__
-./Entities/Enemies/*.pyc
-
-./Entities/Game/__pycache__
-./Entities/Game/*.pyc
-
-./Entities/Inventory/__pycache__
-./Entities/Inventory/*.pyc
-
-./Entities/Items/__pycache__
-./Entities/Items/*.pyc
-
-./Entities/Items/Food/__pycache__
-./Entities/Items/Food/*.pyc
-
-./Entities/Player/__pycache__
-./Entities/Player/*.pyc
-
-**/.pyc
-
+# Python Ignores
+*.pyc
 **/__pycache__
 
+# MacOs Ignores
 **/.DS_Store
+
+# VS Code Ignores
+.vscode
