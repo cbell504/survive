@@ -4,7 +4,6 @@ from survive.enemies.enemycontroller import EnemyController
 
 
 class CombatController(Controller):
-
     def __init__(self):
         self.combat_view = CombatView()
 

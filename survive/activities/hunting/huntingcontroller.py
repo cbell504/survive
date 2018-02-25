@@ -3,8 +3,9 @@ from survive.activities.hunting.huntingview import HuntingView
 from survive.activities.hunting.huntingmodel import Hunting
 from survive.activities.combat.combatcontroller import CombatController
 
+
 class HuntingController(Controller):
-    
+
     def __init__(self):
         self.hunting_view = HuntingView()
         self.hunting = Hunting()
@@ -20,7 +21,7 @@ class HuntingController(Controller):
 
                 super().clear_screen()
 
-                if(playerInput == 0 ):
+                if(playerInput == 0):
                     self.hunting_view.display_end()
                     break
 
@@ -34,9 +35,6 @@ class HuntingController(Controller):
                     else:
                         self.hunting_view.display_no_animal_found()
 
-
-                    
-
                 else:
                     print("This is not a valid action\n")
 
@@ -47,6 +45,3 @@ class HuntingController(Controller):
                 raise
 
         return player
-
-
-

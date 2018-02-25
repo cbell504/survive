@@ -1,5 +1,6 @@
 from survive.generic.view import View
 
+
 class CombatView(View):
     def __init__(self):
         self.enemyName = "Something"

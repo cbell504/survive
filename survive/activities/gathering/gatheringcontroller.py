@@ -2,8 +2,9 @@ from survive.generic.controller import Controller
 from survive.activities.gathering.gatheringview import GatheringView
 from survive.activities.crafting.craftingcontroller import CraftingController
 
+
 class GatheringController(Controller):
-    
+
     def __init__(self):
         self.inventoryView = InventoryView()
 
@@ -18,7 +19,7 @@ class GatheringController(Controller):
 
                 self.clearScreen()
 
-                if(playerInput == 0 ):
+                if(playerInput == 0):
                     self.inventoryView.displayEnd()
                     break
 
@@ -48,6 +49,3 @@ class GatheringController(Controller):
                 raise
 
         return player
-
-
-

@@ -1,5 +1,6 @@
 from survive.generic.view import View
 
+
 class HuntingView(View):
     def __init__(self):
         pass

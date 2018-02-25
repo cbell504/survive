@@ -2,10 +2,10 @@ from survive.generic.model import Model
 
 # TODO: Raise error when values are set below zero
 
+
 class Enemy(Model):
-    
     def __init__(self):
-        # Health 
+        # Health
         self.health = 10
         self.DEFAULT_HEALTH = 10
 
@@ -27,7 +27,6 @@ class Enemy(Model):
             return True
         else:
             return False
-    
 
     # Getters and Setters
 
@@ -39,7 +38,7 @@ class Enemy(Model):
 
     def get_health(self):
         return self.health
-    
+
     def get_level(self):
         if(self.level):
             return self.level
@@ -63,10 +62,11 @@ class Enemy(Model):
             self.basic_attack = basic_attack
         else:
             try:
-                raise Exception('Enemy Basic Attack was attempted to be set below zero')
+                raise Exception(
+                    'Enemy Basic Attack was attempted to be set below zero')
             except Exception as error:
                 print("Error Caught: " + repr(error))
-    
+
     def set_health(self, health):
         self.health = health
 
@@ -75,18 +75,20 @@ class Enemy(Model):
             self.level = level
         else:
             try:
-                raise Exception('Enemy Level was attempted to be set below one.')
+                raise Exception(
+                    'Enemy Level was attempted to be set below one.')
             except Exception as error:
                 print("Error Caught: " + repr(error))
-    
+
     def set_name(self, name):
         self.name = name
-    
+
     def set_special_attack(self, special_attack):
         if(special_attack >= 0):
             self.special_attack = special_attack
         else:
             try:
-                raise Exception('Enemy Special Attack was attempted to be set below zero.')
+                raise Exception(
+                    'Enemy Special Attack was attempted to be set below zero.')
             except Exception as error:
                 print("Error Caught: " + repr(error))

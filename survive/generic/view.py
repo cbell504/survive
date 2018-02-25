@@ -8,7 +8,7 @@ class View(object):
         print("\n")
 
     def end(self):
-        print("Moving back to game.\n")
+        print("Moving back to screen.\n")
 
     def request_action(self):
         print("Enter an action.\n")
