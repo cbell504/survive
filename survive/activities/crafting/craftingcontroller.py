@@ -18,19 +18,19 @@ class CraftingController(Controller):
 
                 playerInput = int(input("Enter an action.\n"))
                 print("\n")
-                self.clearScreen()
+                super().clear_screen()
 
                 if(playerInput == 0 ):
                     print("Moving back to game.\n")
                     break
                 elif(playerInput == 10):
-                    self.clearScreen()
+                    super().clear_screen()
 
                     player.inventory.display()
 
                 elif(playerInput == 1):
-                    woodworkingController = WoodWorkingController()
-                    player = woodworkingController.start(player)
+                    woodworking_controller = WoodWorkingController()
+                    player = woodworking_controller.start(player)
 
                 else:
                     print("This is not a valid action\n")

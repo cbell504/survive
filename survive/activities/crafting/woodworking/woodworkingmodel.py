@@ -10,20 +10,20 @@ from random import randint
 class WoodWorking(object):
     
     def __init__(self):
-        self.skillLevel = 1
-        self.percentageToCut = 2
-        self.itemBuilt = 0
+        self.skill_level = 1
+        self.percentage_to_cut = 2
+        self.item_built = 0
 
 
     def is_wood_gained(self):
         ranNum = randint(1,10)
-        if(ranNum % self.percentageToCut == 0):
+        if(ranNum % self.percentage_to_cut == 0):
             return True
         else:
             return False
 
-    def build_boat(self, totalWood, player):
-        if(totalWood >= 10):
+    def build_boat(self, total_wood, player):
+        if(total_wood >= 10):
             print("You have built a boat.\n")
             player.inventory.slots['Boat'] += 1
             player.inventory.slots['Wood'] -= 10
@@ -32,8 +32,8 @@ class WoodWorking(object):
     
         return player
 
-    def buildShelter(self, totalWood, player):
-        if(totalWood >= 5):
+    def build_shelter(self, total_wood, player):
+        if(total_wood >= 5):
             print("You have built a Shelter.\n")
             player.inventory.slots['Shelter'] += 1
             player.inventory.slots['Wood'] -= 5

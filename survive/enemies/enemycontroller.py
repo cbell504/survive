@@ -9,11 +9,11 @@ class EnemyController(Controller):
     def __init__(self):
         self.enemy = Enemy()
 
-    def generateEnemy(self):
+    def generate_enemy(self):
         self.enemy = Hog()
 
-    def getEnemyAttack(self):
-        return self.enemy.basicAttack()
+    def get_enemy_attack(self):
+        return self.enemy.get_basic_attack()
 
 
 

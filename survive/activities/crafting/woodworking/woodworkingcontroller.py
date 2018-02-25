@@ -1,6 +1,7 @@
 from survive.generic.controller import Controller
 from survive.activities.crafting.woodworking.woodworkingmodel import WoodWorking
 
+
 class WoodWorkingController(Controller):
     def __init__(self):
         self.itemBuilt = 0
@@ -17,27 +18,25 @@ class WoodWorkingController(Controller):
                 print("(10) Clear Screen")
                 print("(0)  Back To Crafting\n")
 
-
                 playerInput = int(input("Enter an action.\n"))
                 print("\n")
-                self.clearScreen()
+                super().clear_screen()
 
-                if(playerInput == 0 ):
+                if(playerInput == 0):
                     print("Moving back to game.\n")
                     break
                 elif(playerInput == 10):
-                    self.clearScreen()
+                    super().clear_screen()
 
                 elif(playerInput == 1):
                     woodworker = WoodWorking()
 
-                    player = woodworker.buildShelter(totalWood, player)
+                    player = woodworker.build_shelter(totalWood, player)
 
                 elif(playerInput == 2):
                     woodworker = WoodWorking()
 
-                    player = woodworker.buildBoat(totalWood, player)
-
+                    player = woodworker.build_boat(totalWood, player)
 
                 else:
                     print("This is not a valid action\n")

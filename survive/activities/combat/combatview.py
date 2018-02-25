@@ -7,10 +7,10 @@ class CombatView(View):
         self.playerName = "Player"
         self.playerHealth = 1
 
-    def enemyAppears(self):
+    def enemy_appears(self):
         print("Wild " + self.enemyName + " appeared.\n")
 
-    def displayStart(self):
+    def display_start(self):
         print(self.enemyName)
         print("Health: " + str(self.enemyHealth) + "\n")
 
@@ -24,15 +24,8 @@ class CombatView(View):
         print("(10) Clear Screen")
         print("(0)  Back To Game\n")
 
-    def displayNoAnimalFound(self):
+    def display_no_animal_found(self):
         print("You did not find an animial to fight.")
-
-
-    def displayEnd(self):
-        print("Moving back to game.\n")
-
-    def displayRequestAction(self):
-        print("Enter an action.\n")
 
     def win(self):
         print("You have defeated the " + self.enemyName + ".\n")

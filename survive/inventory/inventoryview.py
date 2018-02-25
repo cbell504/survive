@@ -13,10 +13,3 @@ class InventoryView(View):
         print("(9)  Use Boat") # End Game choice
         print("(10) Clear Screen")
         print("(0)  Back To Game\n")
-
-
-    def display_end(self):
-        print("Moving back to game.\n")
-
-    def display_request_action(self):
-        print("Enter an action.\n")
