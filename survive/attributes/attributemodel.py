@@ -1,5 +1,4 @@
 class Attribute(object):
-
     def __init__(self, level, name):
         self._name = name
         self._level = level

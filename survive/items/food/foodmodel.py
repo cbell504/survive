@@ -1,5 +1,4 @@
 class Food(object):
-
     def __init__(self):
         self.health_gained = 0
 
