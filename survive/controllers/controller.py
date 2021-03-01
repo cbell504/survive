@@ -1,17 +1,19 @@
-import platform
-import os
+from survive.view import View
 
 
 class Controller(object):
     def __init__(self):
-        self._system = ""
+        self._view_text = ""
+        self._view = View(self._view_text)
 
-    def clear_screen(self):
-        self.get_platform()
-        if self._system == "Windows":
-            os.system('cls')
-        else:
-            os.system('clear')
+    def get_view(self):
+        return self._view
 
-    def get_platform(self):
-        self._system = platform.system()
+    def set_view(self, view):
+        self._view = view
+
+    def get_view_text(self):
+        return self._view_text
+
+    def set_view_text(self, view_text):
+        self._view_text = view_text

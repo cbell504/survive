@@ -3,9 +3,12 @@ from survive.models.general.attribute import Attribute
 
 import sys
 
+from survive.models.model import Model
 
-class Player(object):
+
+class Player(Model):
     def __init__(self, name):
+        super().__init__()
         # Basic player attributes
         self._health = 10
         self._name = name

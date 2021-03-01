@@ -6,7 +6,7 @@ class WoodWorking(object):
         self._percentage_to_cut = 2
 
     def build_boat(self, player):
-        if(player.get_inventory().get_slots()['Wood'] >= 10):
+        if player.get_inventory().get_slots()['Wood'] >= 10:
             print("You have built a boat.\n")
             player.get_inventory().get_slots()['Boat'] += 1
             player.get_inventory().get_slots()['Wood'] -= 10
@@ -16,7 +16,7 @@ class WoodWorking(object):
         return player
 
     def build_shelter(self, player):
-        if(player.get_inventory().get_slots()['Wood'] >= 5):
+        if player.get_inventory().get_slots()['Wood'] >= 5:
             print("You have built a Shelter.\n")
             player.get_inventory().get_slots()['Shelter'] += 1
             player.get_inventory().get_slots()['Wood'] -= 5
@@ -26,12 +26,12 @@ class WoodWorking(object):
         return player
 
     def cut_wood(self, player):
-        if(player.get_inventory().is_slots_full()):
+        if player.get_inventory().is_slots_full():
             print("Your inventory is full!\n")
             print("You didn't pick up the wood.\n")
         else:
             # TODO Make wood working class give out wood
-            if(self.is_wood_gained()):
+            if self.is_wood_gained():
                 print("You got 1 piece of wood!\n")
                 player.get_inventory().add_item('Wood', 1)
                 player.get_strength().gain_exp()

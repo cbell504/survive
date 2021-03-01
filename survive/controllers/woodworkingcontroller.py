@@ -1,12 +1,11 @@
 from survive.controllers.controller import Controller
-from survive.view import View
 from survive.models.activities.crafting.woodworking.woodworkingmodel import WoodWorking
 
 
 class WoodWorkingController(Controller):
     def __init__(self):
         super().__init__()
-        self._view = {
+        self._view_text = {
             0: "Possible Actions:\n",
             1: "(1)  Cut Wood",
             2: "(2)  Build A Shelter",
@@ -14,37 +13,29 @@ class WoodWorkingController(Controller):
             4: "(10) Clear Screen",
             5: "(0)  Back To Crafting\n"
         }
+        self._view.set_view_text(self._view_text)
 
     def start(self, player):
-        view = View(self._view)
         woodworker = WoodWorking()
-        playerInput = -1
-
         while True:
             try:
-                view.start()
-                playerInput = int(input("Enter an action.\n"))
-                super().clear_screen()
+                self._view.update_view()
+                player_input = int(input("Enter an action.\n"))
+                self._view.clear_view()
 
-                if playerInput == 0:
-                    view.end()
+                if player_input == 0:
+                    self._view.end()
                     break
-
-                elif playerInput == 10:
-                    super().clear_screen()
-
-                elif playerInput == 1:
+                elif player_input == 10:
+                    self._view.clear_view()
+                elif player_input == 1:
                     player = woodworker.cut_wood(player)
-
-                elif playerInput == 2:
+                elif player_input == 2:
                     player = woodworker.build_shelter(player)
-
-                elif playerInput == 3:
+                elif player_input == 3:
                     player = woodworker.build_boat(player)
-
                 else:
                     print("This is not a valid action\n")
-
             except ValueError:
                 print("Please enter a number.\n")
 
