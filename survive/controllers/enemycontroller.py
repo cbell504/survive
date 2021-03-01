@@ -5,8 +5,8 @@ from survive.models.enemies.hog import Hog
 
 
 class EnemyController(Controller):
-    def __init__(self):
-        super().__init__()
+    def __init__(self, player):
+        super().__init__(player)
         self._enemy = Enemy()
 
     def generate_enemy(self):

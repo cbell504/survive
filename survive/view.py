@@ -27,7 +27,7 @@ class View(object):
 
     @staticmethod
     def end():
-        print("Moving back to screen.\n")
+        print("Moving back a screen.\n")
 
     @staticmethod
     def request_action():

@@ -1,4 +1,3 @@
-from survive.models.player import Player
 from survive.controllers.craftingcontroller import CraftingController
 from survive.controllers.inventorycontroller import InventoryController
 from survive.controllers.huntingcontroller import HuntingController
@@ -6,8 +5,8 @@ from survive.controllers.controller import Controller
 
 
 class GameController(Controller):
-    def __init__(self):
-        super().__init__()
+    def __init__(self, player):
+        super().__init__(player)
         self._view_text = {
             0: "Possible Actions:\n",
             1: "(1)  Check Stats",
@@ -18,32 +17,25 @@ class GameController(Controller):
             11: "(0)  To Quit\n"
         }
         self._view.set_view_text(self._view_text)
-        self._crafting_controller = CraftingController()
-        self._inventory_controller = InventoryController()
-        self._huntingController = HuntingController()
+        self._crafting_controller = CraftingController(self._player)
+        self._inventory_controller = InventoryController(self._player)
+        self._huntingController = HuntingController(self._player)
 
-    def start(self, name):
-        player = Player(name)
-        while True:
-            try:
-                self._view.update_view()
-                player_input = int(input("Enter an action.\n"))
-                self._view.clear_view()
+    def game_loop_by_class(self, player_input, loop_condition):
+        if player_input == 0:
+            print("Game Over")
+            loop_condition = 999
+        elif player_input == 10:
+            self._view.clear_view()
+        elif player_input == 1:
+            self._player.check_stats()
+        elif player_input == 2:
+            self._inventory_controller.start()
+        elif player_input == 3:
+            self._player = self._crafting_controller.start()
+        elif player_input == 4:
+            self._player = self._huntingController.start()
+        else:
+            print("This is not a valid action\n")
 
-                if player_input == 0:
-                    print("Game Over\n")
-                    break
-                elif player_input == 10:
-                    self._view.clear_view()
-                elif player_input == 1:
-                    player.check_stats()
-                elif player_input == 2:
-                    self._inventory_controller.start(player)
-                elif player_input == 3:
-                    player = self._crafting_controller.start(player)
-                elif player_input == 4:
-                    player = self._huntingController.start(player)
-                else:
-                    print("This is not a valid action\n")
-            except ValueError:
-                print("Please enter a number.\n")
+        return loop_condition

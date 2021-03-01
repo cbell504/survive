@@ -1,10 +1,11 @@
+from random import randint
+
 from survive.controllers.controller import Controller
-from survive.models.activities.crafting.woodworking.woodworkingmodel import WoodWorking
 
 
 class WoodWorkingController(Controller):
-    def __init__(self):
-        super().__init__()
+    def __init__(self, player):
+        super().__init__(player)
         self._view_text = {
             0: "Possible Actions:\n",
             1: "(1)  Cut Wood",
@@ -14,29 +15,63 @@ class WoodWorkingController(Controller):
             5: "(0)  Back To Crafting\n"
         }
         self._view.set_view_text(self._view_text)
+        self._percentage_to_cut = 2
 
-    def start(self, player):
-        woodworker = WoodWorking()
-        while True:
-            try:
-                self._view.update_view()
-                player_input = int(input("Enter an action.\n"))
-                self._view.clear_view()
+    def game_loop_by_class(self, player_input, loop_condition):
+        if player_input == 0:
+            loop_condition = 999
+        elif player_input == 10:
+            self._view.clear_view()
+        elif player_input == 1:
+            self._player = self.cut_wood()
+        elif player_input == 2:
+            self._player = self.build_shelter()
+        elif player_input == 3:
+            self._player = self.build_boat()
+        else:
+            print("This is not a valid action\n")
 
-                if player_input == 0:
-                    self._view.end()
-                    break
-                elif player_input == 10:
-                    self._view.clear_view()
-                elif player_input == 1:
-                    player = woodworker.cut_wood(player)
-                elif player_input == 2:
-                    player = woodworker.build_shelter(player)
-                elif player_input == 3:
-                    player = woodworker.build_boat(player)
-                else:
-                    print("This is not a valid action\n")
-            except ValueError:
-                print("Please enter a number.\n")
+        return loop_condition
 
-        return player
+    def build_boat(self ):
+        if self._player.get_inventory().get_slots()['Wood'] >= 10:
+            print("You have built a boat.\n")
+            self._player.get_inventory().get_slots()['Boat'] += 1
+            self._player.get_inventory().get_slots()['Wood'] -= 10
+        else:
+            print("You don't have enough wood.\n")
+
+        return self._player
+
+    def build_shelter(self):
+        if self._player.get_inventory().get_slots()['Wood'] >= 5:
+            print("You have built a Shelter.\n")
+            self._player.get_inventory().get_slots()['Shelter'] += 1
+            self._player.get_inventory().get_slots()['Wood'] -= 5
+        else:
+            print("You don't have enough wood.\n")
+
+        return self._player
+
+    def cut_wood(self):
+        if self._player.get_inventory().is_slots_full():
+            print("Your inventory is full!\n")
+            print("You didn't pick up the wood.\n")
+        else:
+            # TODO Make wood working class give out wood
+            if self.is_wood_gained():
+                print("You got 1 piece of wood!\n")
+                self._player.get_inventory().add_item('Wood', 1)
+                self._player.get_strength().gain_exp()
+                self._player.get_stamina().gain_exp()
+
+            else:
+                print("You failed to cut the tree.\n")
+        return self._player
+
+    def is_wood_gained(self):
+        ran_num = randint(1, 10)
+        if ran_num % self._percentage_to_cut == 0:
+            return True
+        else:
+            return False

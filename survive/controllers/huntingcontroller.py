@@ -1,48 +1,42 @@
 from random import randint
 
 from survive.controllers.controller import Controller
-from survive.models.activities.hunting.hunting import Hunting
 from survive.controllers.combatcontroller import CombatController
 
 
 class HuntingController(Controller):
-    def __init__(self):
-        super().__init__()
+    def __init__(self, player):
+        super().__init__(player)
         self._view_text = {
             0: "Possible Actions:\n",
             1: "(1)  Hunt",
             2: "(10) Clear Screen",
             3: "(0)  Back To Game\n"
         }
-        self._view.update_view(self._view_text)
-        self._combat_controller = CombatController()
+        self._view.set_view_text(self._view_text)
+        self._combat_controller = CombatController(self._player)
         self._catch_chance = 40
 
-    def start(self, player):
-        hunting = Hunting()
-        while True:
-            try:
-                self._view.update_view()
-                player_input = int(input("Enter an action.\n"))
-                self._view.clear_screen()
-
-                if player_input == 0:
-                    self._view.end()
-                    break
-                elif player_input == 10:
-                    self._view.clear_screen()
-                elif player_input == 1:
-                    self.find_animal(player)
-                else:
-                    print("This is not a valid action\n")
-            except ValueError:
-                print("Please enter a number.\n")
-
-        return player
+    def game_loop_by_class(self, player_input, loop_condition):
+        if player_input == 0:
+            loop_condition = 999
+        elif player_input == 10:
+            self._view.clear_screen()
+        elif player_input == 1:
+            self.find_animal(self._player)
+        else:
+            print("This is not a valid action\n")
+        return loop_condition
 
     def find_animal(self, player):
         actual_animal_chance = randint(1, 100)
         if self._catch_chance <= actual_animal_chance:
-            self._combat_controller.start(player)
+            self._combat_controller.start()
         else:
             print("No Animal Found!")
+
+    def get_catch_chance(self):
+        return self._catch_chance
+
+    def set_catch_chance(self, catch_chance):
+        self._catch_chance = catch_chance
