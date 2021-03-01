@@ -10,5 +10,4 @@ class EnemyController(Controller):
         self._enemy = Enemy()
 
     def generate_enemy(self):
-        self._enemy = Hog()
-        return self._enemy
+        return Hog()

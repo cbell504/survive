@@ -33,12 +33,31 @@ class CombatController(Controller):
             self._view.clear_view()
         else:
             print("This is not a valid action\n")
-        self.is_combat_over()
+        if self.is_combat_over():
+            loop_condition = 999
+        self.update_combat_view_text()
         return loop_condition
 
     def is_combat_over(self):
         if self._enemy.get_health() <= 0:
             self._view.victory(self._enemy)
-        if self._player.get_health <= 0:
+            return True
+
+        if self._player.get_health() <= 0:
             print("You have died. Game Over")
             sys.exit()
+
+    def update_combat_view_text(self):
+        self._view_text = {
+            0: self._enemy.get_name(),
+            1: "Health: " + str(self._enemy.get_health()) + "\n",
+            2: self._player.get_name(),
+            3: "Health: " + str(self._player.get_health()) + "\n",
+            4: "Possible Actions:\n",
+            5: "(1)  Attack",
+            6: "(2)  Defend",
+            7: "(3)  Run",
+            8: "(10) Clear Screen",
+            9: "(0)  Back To Game\n"
+        }
+        self._view.set_view_text(self._view_text)

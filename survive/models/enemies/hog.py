@@ -11,8 +11,8 @@ class Hog(Enemy):
         self._attacks = {"Bite": 1}
         self._special_attacks = {"Ram": 2}
 
-    def get_basic_attack(self):
+    def get_attacks(self):
         return self._attacks
 
-    def get_special_attack(self):
+    def get_special_attacks(self):
         return self._special_attacks
