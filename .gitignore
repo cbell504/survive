@@ -7,3 +7,5 @@
 
 # VS Code Ignores
 .vscode
+
+.idea

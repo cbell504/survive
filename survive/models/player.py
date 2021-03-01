@@ -1,11 +1,14 @@
-from survive.inventory.inventorymodel import Inventory
-from survive.attributes.attributemodel import Attribute
+from survive.models.inventory import Inventory
+from survive.models.general.attribute import Attribute
 
 import sys
 
+from survive.models.model import Model
 
-class Player(object):
+
+class Player(Model):
     def __init__(self, name):
+        super().__init__()
         # Basic player attributes
         self._health = 10
         self._name = name
@@ -34,7 +37,7 @@ class Player(object):
     # TODO: Create a file to hold how much health should increase
     # based on what the player eats.
     def eat_food(self):
-        if(self.get_inventory().get_item('Food') > 0):
+        if self.get_inventory().get_item('Food') > 0:
             self._health += 5
         else:
             print("You don't have any food!\n")
@@ -54,6 +57,9 @@ class Player(object):
     def get_name(self):
         return self._name
 
+    def set_name(self, name):
+        self._name = name
+
     def get_special_attack(self):
         return self._special_attack + self._strength.get_level()
 
@@ -64,7 +70,7 @@ class Player(object):
         return self._strength
 
     def is_player_dead(self):
-        if(self._health <= 0):
+        if self._health <= 0:
             self.kill_player()
             return True
         else:
