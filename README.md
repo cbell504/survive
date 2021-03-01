@@ -2,9 +2,17 @@
 
 Survive is a text based adventure game
 
+## Requirements
+
+1. python3
+
 ## Running
 
-You can running Survive by running it using python3
+For now, just running the following command and the game should startup.
+
+```sh
+python3 main.py
+```
 
 ## Development
 
