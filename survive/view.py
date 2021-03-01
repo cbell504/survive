@@ -10,11 +10,14 @@ class View(object):
             print(value)
         print("\n")
 
-    def end(self):
+    @staticmethod
+    def end():
         print("Moving back to screen.\n")
 
-    def request_action(self):
+    @staticmethod
+    def request_action():
         print("Enter an action.\n")
 
-    def victory(self, enemy):
+    @staticmethod
+    def victory(enemy):
         print("You have defeated " + enemy.get_name())

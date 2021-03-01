@@ -1,10 +1,11 @@
-from survive.generic.controller import Controller
-from survive.generic.view import View
-from survive.enemies.enemycontroller import EnemyController
+from survive.controllers.controller import Controller
+from survive.view import View
+from survive.controllers.enemycontroller import EnemyController
 
 
 class CombatController(Controller):
     def __init__(self):
+        super().__init__()
         self._view = {
             0: "Enemy Appears!"
         }
@@ -15,7 +16,7 @@ class CombatController(Controller):
         enemy = enemy_controller.generate_enemy()
         player_input = -1
 
-        while(enemy.get_health() >= 0):
+        while enemy.get_health() >= 0:
             try:
                 self.update_view(enemy, player, view)
                 view.start()
@@ -25,15 +26,15 @@ class CombatController(Controller):
 
                 super().clear_screen()
 
-                if(player_input == 0):
+                if player_input == 0:
                     view.end()
                     break
 
-                elif(player_input == 1):
+                elif player_input == 1:
                     enemy.set_health(enemy.get_health() - player.get_basic_attack())
                     player.set_health(player.get_health() - enemy.get_basic_attack())
 
-                elif(player_input == 10):
+                elif player_input == 10:
                     super().clear_screen()
 
                 else:
@@ -41,13 +42,7 @@ class CombatController(Controller):
 
             except ValueError:
                 print("Please enter a number.\n")
-
-            except:
-                print("Error occurred.\n")
-                raise
-
         view.victory(enemy)
-
         return player
 
     def update_view(self, enemy, player, view):

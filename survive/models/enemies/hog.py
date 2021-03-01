@@ -1,9 +1,10 @@
-from survive.enemies.enemymodel import Enemy
-from survive.attributes.attributemodel import Attribute
+from survive.models.enemies.enemy import Enemy
+from survive.models.general.attribute import Attribute
 
 
 class Hog(Enemy):
     def __init__(self):
+        super().__init__()
         self._name = "Hog"
         self._health = 5
         self._level = Attribute(1, "Level")
@@ -11,7 +12,7 @@ class Hog(Enemy):
         self._special_attacks = {"Ram": 2}
 
     def get_basic_attack(self):
-        return self._attacks["Bite"]
+        return self._attacks
 
     def get_special_attack(self):
-        return self._special_attacks["Ram"]
+        return self._special_attacks

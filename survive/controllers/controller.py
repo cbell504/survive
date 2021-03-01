@@ -8,7 +8,7 @@ class Controller(object):
 
     def clear_screen(self):
         self.get_platform()
-        if(self._system == "Windows"):
+        if self._system == "Windows":
             os.system('cls')
         else:
             os.system('clear')

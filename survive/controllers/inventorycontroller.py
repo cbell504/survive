@@ -1,10 +1,11 @@
-from survive.generic.controller import Controller
-from survive.generic.view import View
-from survive.activities.crafting.craftingcontroller import CraftingController
+from survive.controllers.controller import Controller
+from survive.view import View
+from survive.controllers.craftingcontroller import CraftingController
 
 
 class InventoryController(Controller):
     def __init__(self):
+        super().__init__()
         self._view = {
             0: "Possible Actions:\n",
             1: "(1)  Display Inventory",
@@ -25,20 +26,20 @@ class InventoryController(Controller):
                 player_input = int(input("Enter an action.\n"))
                 super().clear_screen()
 
-                if(player_input == 0):
+                if player_input == 0:
                     view.end()
                     break
 
-                elif(player_input == 1):
+                elif player_input == 1:
                     player.get_inventory().display()
 
-                elif(player_input == 2):
+                elif player_input == 2:
                     player.eat_food()
 
-                elif(player_input == 3):
+                elif player_input == 3:
                     player = crafting_controller.start(player)
 
-                elif(player_input == 10):
+                elif player_input == 10:
                     super().clear_screen()
 
                 else:
@@ -46,9 +47,4 @@ class InventoryController(Controller):
 
             except ValueError:
                 print("Please enter a number.\n")
-
-            except:
-                print("Error occurred.\n")
-                raise
-
         return player

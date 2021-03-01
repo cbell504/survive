@@ -1,13 +1,14 @@
-from survive.player.playermodel import Player
-from survive.activities.crafting.craftingcontroller import CraftingController
-from survive.inventory.inventorycontroller import InventoryController
-from survive.activities.hunting.huntingcontroller import HuntingController
-from survive.generic.controller import Controller
-from survive.generic.view import View
+from survive.models.player import Player
+from survive.controllers.craftingcontroller import CraftingController
+from survive.controllers.inventorycontroller import InventoryController
+from survive.controllers.huntingcontroller import HuntingController
+from survive.controllers.controller import Controller
+from survive.view import View
 
 
 class GameController(Controller):
     def __init__(self):
+        super().__init__()
         self._view = {
             0: "Possible Actions:\n",
             1: "(1)  Check Stats",
@@ -32,24 +33,24 @@ class GameController(Controller):
                 player_input = int(input("Enter an action.\n"))
                 super().clear_screen()
 
-                if(player_input == 0):
+                if player_input == 0:
                     print("Game Over\n")
                     break
 
-                elif(player_input == 10):
+                elif player_input == 10:
                     super().clear_screen()
 
-                elif(player_input == 1):
+                elif player_input == 1:
                     player.check_stats()
 
-                elif(player_input == 2):
+                elif player_input == 2:
                     inventory_controller.start(player)
 
-                elif(player_input == 3):
+                elif player_input == 3:
                     print("Entering Crafting Screen.\n")
                     player = crafting_controller.start(player)
 
-                elif(player_input == 4):
+                elif player_input == 4:
                     print("Entering Hunting Screen.\n")
                     player = huntingController.start(player)
 
@@ -58,7 +59,3 @@ class GameController(Controller):
 
             except ValueError:
                 print("Please enter a number.\n")
-
-            except:
-                print("Error occurred.\n")
-                raise
