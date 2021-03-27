@@ -1,4 +1,4 @@
-from survive.models.player import Player
+from survive.models.entity.player import Player
 
 import unittest
 

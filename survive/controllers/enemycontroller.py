@@ -1,7 +1,7 @@
 from survive.controllers.controller import Controller
 
-from survive.models.enemies.enemy import Enemy
-from survive.models.enemies.hog import Hog
+from survive.models.entity.enemies import Enemy
+from survive.models.entity.enemies.hog import Hog
 
 
 class EnemyController(Controller):

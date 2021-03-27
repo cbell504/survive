@@ -1,8 +1,6 @@
-from survive.controllers.gamecontroller import GameController
-
 import logging
-
-from survive.models.player import Player
+from survive.controllers.gamecontroller import GameController
+from survive.models.entity.player import Player
 
 
 def main():
