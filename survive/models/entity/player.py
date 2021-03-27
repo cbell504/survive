@@ -1,28 +1,24 @@
-from survive.models.inventory import Inventory
-from survive.models.general.attribute import Attribute
-
 import sys
 
-from survive.models.model import Model
+from survive.models.entity.actionableentity import ActionableEntity
+from survive.models.general.attribute import Attribute
+from survive.models.inventory import Inventory
 
 
-class Player(Model):
+class Player(ActionableEntity):
     def __init__(self, name):
         super().__init__()
-        # Basic player attributes
-        self._health = 10
+        # Basic Stats
         self._name = name
+        self._basic_attack = 1
+        self._special_attack = 2
 
-        # Advanced player attributes
+        # Advanced Stats
         self._inventory = Inventory()
         self._level = Attribute(1, "Level")
         self._stamina = Attribute(10, "Stamina")
         self._strength = Attribute(2, "Strength")
         self._wood_working = Attribute(1, "Woodworking")
-
-        # Attacks
-        self._basic_attack = 1
-        self._special_attack = 2
 
     def check_inventory(self):
         self._inventory.display()
@@ -41,7 +37,7 @@ class Player(Model):
             self._health += 5
         else:
             print("You don't have any food!\n")
-        
+
     def get_basic_attack(self):
         return self._basic_attack + self._strength.get_level()
 
