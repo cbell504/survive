@@ -1,4 +1,4 @@
-from survive.models.enemies.enemy import Enemy
+from survive.models.entity.enemies import Enemy
 from survive.models.general.attribute import Attribute
 
 

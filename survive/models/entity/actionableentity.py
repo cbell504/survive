@@ -2,13 +2,11 @@ from survive.models.model import Model
 from survive.models.general.attribute import Attribute
 
 
-# TODO: Raise error when values are set below zero
-
-class Enemy(Model):
+class ActionableEntity(Model):
     def __init__(self):
         super().__init__()
         self.DEFAULT_HEALTH = 10
-        self.DEFAULT_NAME = "Enemy"
+        self.DEFAULT_NAME = "Chris"
         self.DEFAULT_BASIC_ATTACK = 1
         self.DEFAULT_SPECIAL_ATTACK = 2
         self.DEFAULT_LEVEL = 1
@@ -18,10 +16,12 @@ class Enemy(Model):
         self._basic_attack = self.DEFAULT_BASIC_ATTACK
         self._basic_attacks = {"Bite", 1}
         self._special_attack = self.DEFAULT_SPECIAL_ATTACK
-        self._special_attacks = {"Ram", 2}
+        self._special_attacks = {"Tackle", 2}
         self._level = Attribute(1, "Level")
+        self._stamina = Attribute(1, "Stamina")
+        self._strength = Attribute(1, "Strength")
 
-    def is_enemy_alive(self):
+    def is_entity_alive(self):
         if self._health > 1:
             return True
         else:
